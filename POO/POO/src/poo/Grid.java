@@ -1,4 +1,5 @@
 package poo;
+import java.util.*;
 
 public class Grid {
 	
@@ -7,7 +8,7 @@ public class Grid {
 	Point final_point;
 	int n_obstacles; // Numero de obstaculos
 	Point[] obstacles; // Vetor de obtaculos
-	Tupple tupples; // Lista de tupples
+	ArrayList<Tupple> tupples; // Lista de tupples
 	int maxc;
 	int final_instant;
 	int k;

@@ -1,8 +1,9 @@
 package poo;
+import java.util.*;
 public class Child {
 
 	double comfort;
-	Point_Node path;
+	ArrayList<Point> path;
 	int length;
 	int cost;
 	Grid grid;
@@ -11,7 +12,7 @@ public class Child {
 		comfort=0;
 		length=0;
 		path=null;
-		grid=A
+		grid=A;
 		cost=0;
 	}
 	
@@ -27,11 +28,35 @@ public class Child {
 	}
 	
 	void change_comfort(Point A){
-		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.cmax - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.n+grid.m+1) ) )^grid.k));
+		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.n+grid.m+1) ) )^grid.k));
 	}
 	
 	// criar as funçõespara adicionar a lista do path, remover, etc.
 	
+	void add_point(Point A) {
+		if(path==null) {
+			path= new ArrayList<Point>();
+		}
+		this.path.add(A);
+		this.length=this.length + 1;
+		
+		Point orig;
+		int size;
+		size=path.size();
+		orig=path.get(size-1);
+		Tupple T;
+		T= new Tupple(0, A, orig);
+		
+		if(this.grid.tupples.contains(T)) {
+			int index = this.grid.tupples.indexOf(T);
+			Tupple exists = this.grid.tupples.get(index);
+			this.cost=this.cost + exists.cost;
+		}
+		else {
+			this.cost=this.cost+1;
+		}
+		change_comfort(A);
+	}
 	
 	
 }
