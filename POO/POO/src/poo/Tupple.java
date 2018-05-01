@@ -14,8 +14,8 @@ public class Tupple {
 		this.next=null;
 	}
 
-	@Override
-	public boolean equals(Object arg0) {
+	
+	public boolean equals(Tupple arg0) {
 		if((this.point_A==arg0.point_A || this.point_A==arg0.point_B) && (this.point_B==arg0.point_A || this.point_B==arg0.point_B)) {
 			return(true);
 		}

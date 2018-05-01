@@ -16,35 +16,34 @@ public class ReadFile extends DefaultHandler{
         	 
 
         	  int length = attributes.getLength();
- 
-        	  // process each attribute
-        	  System.out.println(qName);
-        	  for (int i=0; i<length; i++) 
+        	  
+        	  switch (qName) 
         	  {
-	        	// get qualified (prefixed) name by index
-	        	String name = attributes.getQName(i);
-	        	System.out.println("Name:" + name);
-	
-	        	// get attribute's value by index.
-	
-	        	String value = attributes.getValue(i);
-	
-	        	System.out.println("Value:" + value);
-	
-	        	
-	        	// get local name by index
-	
-	        	String lName = attributes.getLocalName(i);
-	
-	        	System.out.println("Local Name:" + lName);
+	        	  // process each attribute
+        	  case "simulation":
+	        	  for (int i=0; i<length; i++) 
+	        	  {
+		        	// get qualified (prefixed) name by index
+		        	String name = attributes.getQName(i);
+		        		switch(name)
+		        		{
+		        		case "finalinst":
+				        	
+				
+				        	// get attribute's value by index.
+				        	String value = attributes.getValue(i);
+				        	System.out.println("Value:" + value);
+		        		}
+	        	  }
+        	  
         	  }
-        	  
-        	  
         	  /*  If qname=simulation then nananana (continuar a fazer*/
         	  /*switch (qName) {
 
-              case "firstname":
-                  bfn = true;
+              case "finalist":
+                  System.out.println(x);
+                  String name = attributes.getQName(i);
+  	        	System.out.println("Name:" + name);
                   break;
 
               case "lastname":
@@ -64,7 +63,7 @@ public class ReadFile extends DefaultHandler{
 		    public void characters(char[] ch, int start, int length) throws SAXException {
 
 		        //if (bfn) {
-		            System.out.println(new String(ch, start, length) + "in the middle of the elem");
+		            //System.out.println(new String(ch, start, length) + "in the middle of the elem");
 		            
 		        
 
@@ -77,9 +76,9 @@ public class ReadFile extends DefaultHandler{
 		public void endElement(String uri, String localName,
 		        String qName) throws SAXException {
 
-		    if ("zone".equals(qName)) {
-		       System.out.println("Hi guys i ahave");
-		    }
+		    //if ("zone".equals(qName)) {
+		      // System.out.println("Hi guys i ahave");
+		    //}
 		}
 		
 	
