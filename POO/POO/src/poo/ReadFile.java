@@ -1,9 +1,6 @@
 package poo;
 
-import java.io.File;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -21,7 +18,7 @@ public class ReadFile extends DefaultHandler{
         	  int length = attributes.getLength();
  
         	  // process each attribute
-
+        	  System.out.println(qName);
         	  for (int i=0; i<length; i++) 
         	  {
 	        	// get qualified (prefixed) name by index
@@ -41,9 +38,50 @@ public class ReadFile extends DefaultHandler{
 	
 	        	System.out.println("Local Name:" + lName);
         	  }
+        	  
+        	  
+        	  /*  If qname=simulation then nananana (continuar a fazer*/
+        	  /*switch (qName) {
+
+              case "firstname":
+                  bfn = true;
+                  break;
+
+              case "lastname":
+                  bln = true;
+                  break;
+
+              case "occupation":
+                  boc = true;
+                  break;
+        	  	}*/
+        	  
 
         }
+		// Aqui escrevemos o que está dentro de <elem> thisshouldbewrittenn </elem>
 		
-	/*}*/
+		  @Override
+		    public void characters(char[] ch, int start, int length) throws SAXException {
+
+		        //if (bfn) {
+		            System.out.println(new String(ch, start, length) + "in the middle of the elem");
+		            
+		        
+
+		       
+		    }
+		
+		
+		
+		// Devemos escrever nesta função, os atributos deste objecto??
+		public void endElement(String uri, String localName,
+		        String qName) throws SAXException {
+
+		    if ("zone".equals(qName)) {
+		       System.out.println("Hi guys i ahave");
+		    }
+		}
+		
+	
 	
 }
