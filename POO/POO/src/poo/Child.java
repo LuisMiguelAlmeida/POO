@@ -31,14 +31,10 @@ public class Child {
 		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.n+grid.m+1) ) )^grid.k));
 	}
 	
-	// criar as funçõespara adicionar a lista do path, remover, etc.
 	
-	void add_point(Point A) {
-		if(path==null) {
-			path= new ArrayList<Point>();
-		}
-		this.path.add(A);
-		this.length=this.length + 1;
+	void remove_point(Point A) {
+		this.path.remove(A);
+		this.length=this.length - 1;
 		
 		Point orig;
 		int size;
@@ -50,10 +46,49 @@ public class Child {
 		if(this.grid.tupples.contains(T)) {
 			int index = this.grid.tupples.indexOf(T);
 			Tupple exists = this.grid.tupples.get(index);
-			this.cost=this.cost + exists.cost;
+			this.cost=this.cost - exists.cost;
 		}
 		else {
-			this.cost=this.cost+1;
+			this.cost=this.cost-1;
+		}
+	}
+	
+	//Alterar o add para ter em conta o ciclo
+	
+	void add_point(Point A) {
+		if(path==null) {
+			path= new ArrayList<Point>();
+		}
+		if(this.path.contains(A)) {
+			int index = this.path.indexOf(A);
+			int size = this.path.size();
+			Point P;
+			for(int i=index+1; i<size; i++) {
+				P=this.path.get(i);
+				this.remove_point(P);
+			}
+			
+		}
+		else {
+			this.path.add(A);
+			this.length=this.length + 1;
+			
+			Point orig;
+			int size;
+			size=path.size();
+			orig=path.get(size-1);
+			Tupple T;
+			T= new Tupple(0, A, orig);
+			
+			if(this.grid.tupples.contains(T)) {
+				int index = this.grid.tupples.indexOf(T);
+				Tupple exists = this.grid.tupples.get(index);
+				this.cost=this.cost + exists.cost;
+			}
+			else {
+				this.cost=this.cost+1;
+			}
+			
 		}
 		change_comfort(A);
 	}
