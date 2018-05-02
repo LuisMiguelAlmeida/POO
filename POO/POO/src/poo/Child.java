@@ -6,12 +6,14 @@ public class Child {
 	ArrayList<Point> path;
 	int length;
 	int cost;
+	Event event;
 	Grid grid;
 	
 	Child(Grid A){
 		comfort=0;
 		length=0;
 		path=null;
+		event=null;
 		grid=A;
 		cost=0;
 	}
@@ -91,6 +93,10 @@ public class Child {
 			
 		}
 		change_comfort(A);
+	}
+	
+	void simulate_event() {
+		this.event.simulate(this, this.grid);
 	}
 	
 	

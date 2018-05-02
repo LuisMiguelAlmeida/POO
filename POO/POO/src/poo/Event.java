@@ -1,5 +1,9 @@
 package poo;
 
-public class Event {
+public abstract class Event {
+	
+	double time;
+	
+	public abstract void simulate(Child child, Grid grid);
 
 }
