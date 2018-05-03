@@ -4,7 +4,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -18,10 +18,10 @@ public class Main {
 		
 		grid=handler.getGrid();
 		
-		
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		
-		factory.setValidating(false);// Change to true
+		factory.setValidating(true);// Change to true
+		factory.setNamespaceAware(true);
 		SAXParser parser = null;
 		try {
 			parser = factory.newSAXParser();
@@ -33,7 +33,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			parser.parse(new File("data1.xml"), handler);
+			parser.parse(new File("simulation.xml"), handler);
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,7 +42,9 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-	
+		grid=handler.getGrid();
+		int a= grid.getMaxc();
+		System.out.println(Integer.toString(a));
 		
 	}
 

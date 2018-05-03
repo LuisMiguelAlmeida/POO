@@ -3,21 +3,26 @@ import java.util.*;
 public class Child {
 
 	double comfort;
-	ArrayList<Point> path;
+	ArrayList<Point> path;// Lista de pontos com o caminho percorrido pelo child
 	int length;
 	int cost;
-	Event event;
+	boolean death;
+//	Event event;
 	Grid grid;
 	
+	
+	// Constructor
 	Child(Grid A){
 		comfort=0;
 		length=0;
 		path=null;
-		event=null;
+//		event=null;
 		grid=A;
 		cost=0;
+		death=false;
 	}
 	
+	// Calcula a distancia entre o ultimo ponto do caminho e ponto final da rede
 	int dist(Point A) {
 		int x_dist;
 		int y_dist;
@@ -29,12 +34,20 @@ public class Child {
 		return(result);
 	}
 	
+	// Calcula o tamanho do percurso do individuo (numero de pontos -1 = numero de arestas)
+	void path_length()
+	{
+		int array_lenght= this.path.size();
+		this.length=array_lenght-1;
+	}
+	
+	// Conforto do individuo
 	void change_comfort(Point A){
 		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.rows+grid.col+1) ) )^grid.k));
 	}
 	
 	
-	void remove_point(Point A) {
+/*	void remove_point(Point A) {
 		this.path.remove(A);
 		this.length=this.length - 1;
 		
@@ -42,7 +55,7 @@ public class Child {
 		int size;
 		size=path.size();
 		orig=path.get(size-1);
-		Tupple T;
+    	Tupple T;
 		T= new Tupple(0, A, orig);
 		
 		/*if(this.grid.tupples.contains(T)) {
@@ -53,15 +66,20 @@ public class Child {
 		else {
 			this.cost=this.cost-1;
 		}*/
-	}
+	//}
 	
 	//Alterar o add para ter em conta o ciclo
 	
-/*	void add_point(Point A) {
-		if(path==null) {
+	void add_point(Point A) {
+		
+		// Se não houver nenhum caminho, então cria-se um novo array
+		if(path==null)
+		{
 			path= new ArrayList<Point>();
 		}
-		if(this.path.contains(A)) {
+		// Se encontrarmos um ciclo no percurso, elimina-se todos os pontos que pertencem a este
+		if(this.path.contains(A)) 
+		{
 			int index = this.path.indexOf(A);
 			int size = this.path.size();
 			Point P;
@@ -75,29 +93,29 @@ public class Child {
 			this.path.add(A);
 			this.length=this.length + 1;
 			
-		//	Point orig;
+			Point orig;
 			int size;
 			size=path.size();
-		//	orig=path.get(size-1);
+			orig=path.get(size-1);
 			//Tupple T;
 			//T= new Tupple(0, A, orig);
 			
-		/*if(this.grid.tupples.contains(T)) {
+		if(this.grid.tupples.contains(T)) {
 				int index = this.grid.tupples.indexOf(T);
 				Tupple exists = this.grid.tupples.get(index);
 				this.cost=this.cost + exists.cost;
 			}
 			else {
 				this.cost=this.cost+1;
-			}*/
+			}
 			
-		/*}
+		}
 		change_comfort(A);
-	}*/
-	
-	void simulate_event() {
-		this.event.simulate(this, this.grid);
 	}
+	
+	/*void simulate_event() {
+		this.event.simulate(this, this.grid);
+	}*/
 	
 	
 }
