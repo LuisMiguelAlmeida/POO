@@ -12,13 +12,13 @@ public class EvMove extends Event {
 		}
 		Point point;
 		point=child.path.get(child.path.size()-1);
-		if(point.x==grid.n) {
+		if(point.x==grid.col) {
 			options[0]=0;
 		}
 		else if(point.x==1) {
 			options[1]=0;
 		}
-		if(point.y==grid.m) {
+		if(point.y==grid.rows) {
 			options[2]=0;
 		}
 		else if(point.y==1) {

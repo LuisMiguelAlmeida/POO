@@ -13,10 +13,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		DefaultHandler handler = new ReadFile();
+		Grid grid= new Grid();
+		ReadFile handler = new ReadFile(grid);
+		
+		grid=handler.getGrid();
+		
+		
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		
-		factory.setValidating(false);
+		factory.setValidating(false);// Change to true
 		SAXParser parser = null;
 		try {
 			parser = factory.newSAXParser();
@@ -38,6 +43,7 @@ public class Main {
 		}
 		
 	
+		
 	}
 
 }

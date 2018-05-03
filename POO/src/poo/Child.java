@@ -30,7 +30,7 @@ public class Child {
 	}
 	
 	void change_comfort(Point A){
-		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.n+grid.m+1) ) )^grid.k));
+		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.rows+grid.col+1) ) )^grid.k));
 	}
 	
 	
@@ -45,19 +45,19 @@ public class Child {
 		Tupple T;
 		T= new Tupple(0, A, orig);
 		
-		if(this.grid.tupples.contains(T)) {
+		/*if(this.grid.tupples.contains(T)) {
 			int index = this.grid.tupples.indexOf(T);
 			Tupple exists = this.grid.tupples.get(index);
 			this.cost=this.cost - exists.cost;
 		}
 		else {
 			this.cost=this.cost-1;
-		}
+		}*/
 	}
 	
 	//Alterar o add para ter em conta o ciclo
 	
-	void add_point(Point A) {
+/*	void add_point(Point A) {
 		if(path==null) {
 			path= new ArrayList<Point>();
 		}
@@ -75,25 +75,25 @@ public class Child {
 			this.path.add(A);
 			this.length=this.length + 1;
 			
-			Point orig;
+		//	Point orig;
 			int size;
 			size=path.size();
-			orig=path.get(size-1);
-			Tupple T;
-			T= new Tupple(0, A, orig);
+		//	orig=path.get(size-1);
+			//Tupple T;
+			//T= new Tupple(0, A, orig);
 			
-			if(this.grid.tupples.contains(T)) {
+		/*if(this.grid.tupples.contains(T)) {
 				int index = this.grid.tupples.indexOf(T);
 				Tupple exists = this.grid.tupples.get(index);
 				this.cost=this.cost + exists.cost;
 			}
 			else {
 				this.cost=this.cost+1;
-			}
+			}*/
 			
-		}
+		/*}
 		change_comfort(A);
-	}
+	}*/
 	
 	void simulate_event() {
 		this.event.simulate(this, this.grid);
