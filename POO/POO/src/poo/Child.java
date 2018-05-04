@@ -107,7 +107,7 @@ public class Child {
 			T= new Tupple(0, A, orig);
 			
 			// Ve se o novo caminho do individuo contem zonas especiais 
-			if(this.grid.tupples.contains(T)) {			
+			if(this.grid.contains(T)) {			
 				int index = this.grid.tupples.indexOf(T);
 				Tupple exists = this.grid.tupples.get(index);
 				this.cost=this.cost + exists.cost;

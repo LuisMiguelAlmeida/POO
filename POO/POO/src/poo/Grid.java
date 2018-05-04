@@ -174,12 +174,26 @@ public class Grid {
 			// Se a aresta T estiver na mesma linha que o ponto A
 			if(temp.point_A.y==T.point_A.y && temp.point_A.y==T.point_B.y) 
 			{
-				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >= )
+				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >=T.point_B.x && temp.point_B.x <=T.point_A.x && temp.point_B.x <=T.point_B.x)
+					return true;
+				
+				if(temp.point_A.x <=T.point_A.x && temp.point_A.x <=T.point_B.x && temp.point_B.x >=T.point_A.x && temp.point_B.x >=T.point_B.x)
+					return true;
 			}
 			
+			// Se a aresta T estiver na mesma linha que o ponto B
+			if(temp.point_B.y==T.point_A.y && temp.point_B.y==T.point_B.y) 
+			{
+				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >=T.point_B.x && temp.point_B.x <=T.point_A.x && temp.point_B.x <=T.point_B.x)
+					return true;
+				
+				if(temp.point_A.x <=T.point_A.x && temp.point_A.x <=T.point_B.x && temp.point_B.x >=T.point_A.x && temp.point_B.x >=T.point_B.x)
+					return true;
+			}
 			
 			 
 		 }
+		 return false;
 	}
 	
 	
