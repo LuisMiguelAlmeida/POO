@@ -28,6 +28,15 @@ public class Grid {
 		final_instant=0;
 		k=0;v=0;v_max=0;delta=0;ro=0;mew=0;
 	}
+	
+	public boolean getobs(int x, int y) {
+		for(int i; i<n_obstacles; i++) {
+			if((this.obstacles[i].x == x) && (this.obstacles[i].y == y))
+				return true;
+		}
+		return false;
+	}
+	
 	// Getters and setters
 	public int getrows() {
 		return rows;
