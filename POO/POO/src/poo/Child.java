@@ -47,7 +47,8 @@ public class Child {
 	}
 	
 	
-/*	void remove_point(Point A) {
+	void remove_point(Point A) 
+	{
 		this.path.remove(A);
 		this.length=this.length - 1;
 		
@@ -58,15 +59,17 @@ public class Child {
     	Tupple T;
 		T= new Tupple(0, A, orig);
 		
-		/*if(this.grid.tupples.contains(T)) {
+		if(this.grid.tupples.contains(T)) {
 			int index = this.grid.tupples.indexOf(T);
 			Tupple exists = this.grid.tupples.get(index);
 			this.cost=this.cost - exists.cost;
 		}
 		else {
 			this.cost=this.cost-1;
-		}*/
-	//}
+		}
+		change_comfort(A); // Atualiza o comforto do individuo
+		
+	}
 	
 	//Alterar o add para ter em conta o ciclo
 	
@@ -83,13 +86,16 @@ public class Child {
 			int index = this.path.indexOf(A);
 			int size = this.path.size();
 			Point P;
-			for(int i=index+1; i<size; i++) {
+			for(int i=index+1; i<size; i++)
+			{
 				P=this.path.get(i);
 				this.remove_point(P);
 			}
 			
 		}
-		else {
+		else 
+		{
+			// Adiciona um novo ponto ao caminho do individuo
 			this.path.add(A);
 			this.length=this.length + 1;
 			
@@ -97,20 +103,22 @@ public class Child {
 			int size;
 			size=path.size();
 			orig=path.get(size-1);
-			//Tupple T;
-			//T= new Tupple(0, A, orig);
+			Tupple T;
+			T= new Tupple(0, A, orig);
 			
-		if(this.grid.tupples.contains(T)) {
+			// Ve se o novo caminho do individuo contem zonas especiais 
+			if(this.grid.tupples.contains(T)) {			
 				int index = this.grid.tupples.indexOf(T);
 				Tupple exists = this.grid.tupples.get(index);
 				this.cost=this.cost + exists.cost;
 			}
-			else {
+			else 
+			{
 				this.cost=this.cost+1;
 			}
-			
+				
 		}
-		change_comfort(A);
+		change_comfort(A); // Atualiza o comforto do individuo
 	}
 	
 	/*void simulate_event() {

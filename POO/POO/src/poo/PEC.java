@@ -5,16 +5,23 @@ public class PEC {
 	
 	ArrayList<Event> list;
 	
-	public void addEvPEC(Event ev) {
+	public void addEvPEC(Event ev) 
+	{
 		
 		double time;
 		time=ev.time;
 		Event dummy;
+		// Se o PEC estiver vazio então adiciona no inicio da lista
 		if(this.list.isEmpty()) {
 			this.list.add(ev);
 		}
-		else {
-			for(int i=0; i<this.list.size(); i++) {
+		// Caso contrario vai procurar o evento que tem um tempo maior que o seu
+		// de forma a inserido antes deste evento na lista
+		else 
+		{
+			// Vai inserir o novo evento antes de um evento com um tempo de simulação superior
+			for(int i=0; i<this.list.size(); i++)
+			{
 				dummy=this.list.get(i);
 				if(time<dummy.time) {
 					this.list.add(i, ev);
@@ -26,7 +33,7 @@ public class PEC {
 			}
 		}
 	}
-	
+	// Retorna o primeiro evento a ser simulado
 	public Event nextEvPEC() {
 		
 		if(this.list.isEmpty()) {
