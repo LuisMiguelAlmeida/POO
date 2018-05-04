@@ -14,19 +14,19 @@ public class EvMove extends Event {
 		Point point;
 		point=child.path.get(child.path.size()-1);
 		// Impossivel mover-se para a direita (fora da rede)
-		if((point.x==grid.col)||(grid.getobs(pos.x+1, pos.y))) {
+		if((point.x==grid.col)||(grid.getobs(point.x+1, point.y))) {
 			options[0]=0;
 		}
 		// Impossivel mover-se para a esquerda (fora da rede)
-		if((point.x==1)||(grid.getobs(pos.x-1, pos.y))) {
+		if((point.x==1)||(grid.getobs(point.x-1, point.y))) {
 			options[1]=0;
 		}
 		// Impossivel mover-se para a cima (fora da rede)
-		if((point.y==grid.rows)||(grid.getobs(pos.x, pos.y+1))) {
+		if((point.y==grid.rows)||(grid.getobs(point.x, point.y+1))) {
 			options[2]=0;
 		}
 		// Impossivel mover-se para a baixo (fora da rede)
-		if((point.y==1)||(grid.getobs(pos.x, pos.y-1))) {
+		if((point.y==1)||(grid.getobs(point.x, point.y-1))) {
 			options[3]=0;
 		}
 		// Conta o numero de movimentos possiveis

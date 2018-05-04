@@ -30,7 +30,7 @@ public class Grid {
 	}
 	
 	public boolean getobs(int x, int y) {
-		for(int i; i<n_obstacles; i++) {
+		for(int i=0; i<n_obstacles; i++) {
 			if((this.obstacles[i].x == x) && (this.obstacles[i].y == y))
 				return true;
 		}
