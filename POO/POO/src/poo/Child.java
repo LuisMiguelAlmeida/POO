@@ -59,14 +59,7 @@ public class Child {
     	Tupple T;
 		T= new Tupple(0, A, orig);
 		
-		if(this.grid.tupples.contains(T)) {
-			int index = this.grid.tupples.indexOf(T);
-			Tupple exists = this.grid.tupples.get(index);
-			this.cost=this.cost - exists.cost;
-		}
-		else {
-			this.cost=this.cost-1;
-		}
+		this.cost -= this.grid.moveCost(T);
 		change_comfort(A); // Atualiza o comforto do individuo
 		
 	}
@@ -107,15 +100,7 @@ public class Child {
 			T= new Tupple(0, A, orig);
 			
 			// Ve se o novo caminho do individuo contem zonas especiais 
-			if(this.grid.contains(T)) {			
-				int index = this.grid.tupples.indexOf(T);
-				Tupple exists = this.grid.tupples.get(index);
-				this.cost=this.cost + exists.cost;
-			}
-			else 
-			{
-				this.cost=this.cost+1;
-			}
+			this.cost += this.grid.moveCost(T);
 				
 		}
 		change_comfort(A); // Atualiza o comforto do individuo

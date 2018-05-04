@@ -143,8 +143,9 @@ public class Grid {
 	public void setMew(int mew) {
 		this.mew = mew;
 	}
-	
-	public boolean contains(Tupple T) {
+
+	//TODO Overlap das zonas especiais
+	public int moveCost(Tupple T) {
 		
 		// T -> Ultima aresta percorrida pelo individuo
 		 for (int i=0; i<this.n_tupples; i++) 
@@ -157,43 +158,43 @@ public class Grid {
 			if(temp.point_A.x ==T.point_A.x && temp.point_A.x ==T.point_B.x ) 
 			{
 				if(temp.point_A.y >= T.point_A.y && temp.point_A.y >= T.point_B.y && temp.point_B.y <= T.point_A.y && temp.point_B.y <= T.point_B.y  )
-					return true;
+					return temp.cost;
 				
 				if(temp.point_A.y <= T.point_A.y && temp.point_A.y <= T.point_B.y && temp.point_B.y >= T.point_A.y && temp.point_B.y >= T.point_B.y  )
-					return true;
+					return temp.cost;
 			}
 			// Se a aresta T estiver na mesma coluna que o ponto B
 			if(temp.point_B.x ==T.point_A.x && temp.point_B.x ==T.point_B.x ) 
 			{
 				if(temp.point_A.y >= T.point_A.y && temp.point_A.y >= T.point_B.y && temp.point_B.y <= T.point_A.y && temp.point_B.y <= T.point_B.y  )
-					return true;
+					return temp.cost;
 				
 				if(temp.point_A.y <= T.point_A.y && temp.point_A.y <= T.point_B.y && temp.point_B.y >= T.point_A.y && temp.point_B.y >= T.point_B.y  )
-					return true;
+					return temp.cost;
 			}
 			// Se a aresta T estiver na mesma linha que o ponto A
 			if(temp.point_A.y==T.point_A.y && temp.point_A.y==T.point_B.y) 
 			{
 				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >=T.point_B.x && temp.point_B.x <=T.point_A.x && temp.point_B.x <=T.point_B.x)
-					return true;
+					return temp.cost;
 				
 				if(temp.point_A.x <=T.point_A.x && temp.point_A.x <=T.point_B.x && temp.point_B.x >=T.point_A.x && temp.point_B.x >=T.point_B.x)
-					return true;
+					return temp.cost;
 			}
 			
 			// Se a aresta T estiver na mesma linha que o ponto B
 			if(temp.point_B.y==T.point_A.y && temp.point_B.y==T.point_B.y) 
 			{
 				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >=T.point_B.x && temp.point_B.x <=T.point_A.x && temp.point_B.x <=T.point_B.x)
-					return true;
+					return temp.cost;
 				
 				if(temp.point_A.x <=T.point_A.x && temp.point_A.x <=T.point_B.x && temp.point_B.x >=T.point_A.x && temp.point_B.x >=T.point_B.x)
-					return true;
+					return temp.cost;
 			}
 			
 			 
 		 }
-		 return false;
+		 return 1;
 	}
 	
 	
