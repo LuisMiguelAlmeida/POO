@@ -128,6 +128,7 @@ public class ReadFile extends DefaultHandler{
 		        		{
 		        		case "num":		        			
 				        	x=(Integer.parseInt(value));
+				        	grid.setN_tupples(x);
 				        	grid.create_Array_Tupples(x);
 				        	break;
 		        		

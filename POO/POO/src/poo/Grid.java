@@ -65,6 +65,12 @@ public class Grid {
 	public int getN_obstacles() {
 		return n_obstacles;
 	}
+	public int getN_tupples() {
+		return n_tupples;
+	}
+	public void setN_tupples(int n_tupples) {
+		this.n_tupples = n_tupples;
+	}
 	public void setN_obstacles(int n_obstacles) {
 		this.n_obstacles = n_obstacles;
 	}
@@ -136,6 +142,44 @@ public class Grid {
 	}
 	public void setMew(int mew) {
 		this.mew = mew;
+	}
+	
+	public boolean contains(Tupple T) {
+		
+		// T -> Ultima aresta percorrida pelo individuo
+		 for (int i=0; i<this.n_tupples; i++) 
+		 {
+			 
+			Tupple temp = tupples[i];
+			// Verifica se 
+			
+			// Se a aresta T estiver na mesma coluna que o ponto A
+			if(temp.point_A.x ==T.point_A.x && temp.point_A.x ==T.point_B.x ) 
+			{
+				if(temp.point_A.y >= T.point_A.y && temp.point_A.y >= T.point_B.y && temp.point_B.y <= T.point_A.y && temp.point_B.y <= T.point_B.y  )
+					return true;
+				
+				if(temp.point_A.y <= T.point_A.y && temp.point_A.y <= T.point_B.y && temp.point_B.y >= T.point_A.y && temp.point_B.y >= T.point_B.y  )
+					return true;
+			}
+			// Se a aresta T estiver na mesma coluna que o ponto B
+			if(temp.point_B.x ==T.point_A.x && temp.point_B.x ==T.point_B.x ) 
+			{
+				if(temp.point_A.y >= T.point_A.y && temp.point_A.y >= T.point_B.y && temp.point_B.y <= T.point_A.y && temp.point_B.y <= T.point_B.y  )
+					return true;
+				
+				if(temp.point_A.y <= T.point_A.y && temp.point_A.y <= T.point_B.y && temp.point_B.y >= T.point_A.y && temp.point_B.y >= T.point_B.y  )
+					return true;
+			}
+			// Se a aresta T estiver na mesma linha que o ponto A
+			if(temp.point_A.y==T.point_A.y && temp.point_A.y==T.point_B.y) 
+			{
+				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >= )
+			}
+			
+			
+			 
+		 }
 	}
 	
 	
