@@ -1,6 +1,6 @@
 package poo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Grid {
 	
@@ -19,6 +19,9 @@ public class Grid {
 	protected int delta; // mean value do movimento (move) 
 	protected int ro;	// mean value da reprodução
 	protected int mew;	// mean value da morte (death)
+	double currtime;
+	static Random random = new Random();
+	PEC pec;
 	protected ArrayList<Child> children;
 	
 	//Contructor inicializa tudo a zero ()
@@ -30,6 +33,8 @@ public class Grid {
 		maxc=1;n_tupples=0;
 		final_instant=0;
 		children=null;
+		currtime=0;
+		pec= new PEC();
 		k=0;v=0;v_max=0;delta=0;ro=0;mew=0;
 	}
 	
@@ -212,6 +217,11 @@ void add_child(Child A) {
 		this.children.add(A);
 
 	}
+
+public double expRandom(double m) {
+	double next = random.nextDouble();
+	return -m*Math.log(1.0-next);
+}
 	
 	
 }

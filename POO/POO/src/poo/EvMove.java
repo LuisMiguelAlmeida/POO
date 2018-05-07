@@ -3,6 +3,8 @@ import java.util.*;
 
 public class EvMove extends Event {
 	
+	static Random rand = new Random();
+	
 	EvMove(double T, Child S){
 		super(T, S);
 	}
@@ -43,7 +45,6 @@ public class EvMove extends Event {
 				possib++;
 			}
 		}
-		Random rand = new Random();
 		int j = rand.nextInt(possib);
 		Point newpoint = new Point(point.x, point.y);
 		for(int i=0; i<4; i++) {
@@ -73,5 +74,8 @@ public class EvMove extends Event {
 			}
 		}
 		child.path.add(newpoint);
+		double addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.delta);
+		EvMove newmove = new EvMove(grid.currtime + addtime, child);
+		grid.pec.addEvPEC(newmove);
 	}
 }
