@@ -11,7 +11,7 @@ public class EvPrint extends Event {
 			String prefix="Path of the best fit individual";
 			String format = "%-40s%s";
 			System.out.printf(format, prefix, "");
-			grid.print_path();
+			grid.print_path(grid.bestpath);
 			System.out.printf("%n");
 		}
 		else {
@@ -29,7 +29,10 @@ public class EvPrint extends Event {
 				System.out.printf(format, prefix, sufix);
 				Child best = grid.findbestone();
 				prefix="Path of the best fit individual";
-				System.out.printf(format, prefix, best);
+				format = "%-40s%s";
+				System.out.printf(format, prefix, "");
+				grid.print_path(grid.bestpath);
+				System.out.printf("%n");
 				prefix="Cost/Comfort:";
 				format = "%-40s%s/%s%n";
 				System.out.printf(format, prefix, best.cost, best.comfort);
@@ -41,7 +44,7 @@ public class EvPrint extends Event {
 				prefix="Path of the best fit individual";
 				format = "%-40s%s";
 				System.out.printf(format, prefix, "");
-				grid.print_path();
+				grid.print_path(grid.bestpath);
 				System.out.printf("%n");
 				prefix="Cost/Comfort:";
 				format = "%-40s%s/%s%n";

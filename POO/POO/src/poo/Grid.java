@@ -249,16 +249,16 @@ public class Grid {
 		return(best);
 	}
 	
-	void print_path() {
-		for(int i=0; i<this.bestpath.size(); i++) {
+	void print_path(ArrayList<Point> bestpath) {
+		for(int i=0; i<bestpath.size(); i++) {
 			if(i==0) {
 				System.out.print("{");
 			}
-			System.out.print(this.bestpath.get(i));
-			if(i<this.bestpath.size() - 1) {
+			System.out.print(bestpath.get(i));
+			if(i<bestpath.size() - 1) {
 				System.out.print(", ");
 			}
-			if(i==this.bestpath.size() - 1) {
+			if(i==bestpath.size() - 1) {
 				System.out.print("}");
 			}
 		}
