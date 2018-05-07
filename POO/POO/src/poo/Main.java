@@ -45,6 +45,21 @@ public class Main {
 		grid=handler.getGrid();
 		int a= grid.getMaxc();
 		System.out.println(Integer.toString(a));
+		for(int i=0; i<grid.v; i++) {
+			Child n = new Child(grid);
+			n.add_point(grid.initial_point);
+			grid.add_child(n);
+		}
+		for(int i=1; i<=20; i++) {
+			EvPrint print = new EvPrint((((grid.final_instant)/20)*i), null);
+			grid.pec.addEvPEC(print);
+		}
+		Event currevent;
+		while(grid.currtime<=grid.final_instant) {
+			currevent=grid.pec.nextEvPEC();
+			grid.currtime=currevent.simulate(grid);
+		}
+		
 		
 	}
 
