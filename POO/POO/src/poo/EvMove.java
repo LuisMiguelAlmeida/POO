@@ -77,5 +77,6 @@ public class EvMove extends Event {
 		double addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.delta);
 		EvMove newmove = new EvMove(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newmove);
+		grid.nevents++;
 	}
 }

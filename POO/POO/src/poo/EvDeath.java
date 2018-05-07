@@ -12,6 +12,7 @@ public class EvDeath extends Event {
 			return;
 		}
 		child.death=true;
+		grid.nevents++;
 	}
 
 }

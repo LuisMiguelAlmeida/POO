@@ -19,10 +19,14 @@ public class Grid {
 	protected int delta; // mean value do movimento (move) 
 	protected int ro;	// mean value da reprodu√ß√£o
 	protected int mew;	// mean value da morte (death)
-	double currtime;
+	double currtime; // tempo corrente da simulaÁ„o
+	ArrayList<Point> bestpath;// Lista de pontos com o melhor caminho encontrado atÈ ao momento
+	int bestcomfort; // conforto associado, na altura, ao individuo que atingiu o melhor caminho
+	int bestcost; // custo associado ao melhor caminho
+	int nevents; // numero de eventos j· ocorridos
 	static Random random = new Random();
 	PEC pec;
-	protected ArrayList<Child> children;
+	protected ArrayList<Child> children; // lista de individuos existentes
 	
 	//Contructor inicializa tudo a zero ()
 	Grid(){
@@ -34,7 +38,11 @@ public class Grid {
 		final_instant=0;
 		children=null;
 		currtime=0;
+		bestcomfort = 0;
+		bestcost = 0;
+		nevents=0;
 		pec= new PEC();
+		bestpath=null;
 		k=0;v=0;v_max=0;delta=0;ro=0;mew=0;
 	}
 	
@@ -206,22 +214,54 @@ public class Grid {
 		 return 1;
 	}
 	
-void add_child(Child A) {
+	void add_child(Child A) {
 		
-		// Se n√£o houver nenhum caminho, ent√£o cria-se um novo array
+		// Se n√£o houver nenhum individuo, ent√£o cria-se uma nova Lista
 		if(children==null)
 		{
 			children= new ArrayList<Child>();
 		} 
-		// Adiciona um novo ponto ao caminho do individuo
+		// Adiciona um novo individuo ‡ lista de indivÌduos
 		this.children.add(A);
 
 	}
-
-public double expRandom(double m) {
-	double next = random.nextDouble();
-	return -m*Math.log(1.0-next);
-}
 	
+	void remove_child(Child A) {
+		 
+		// Remove um individuo da lista de individuos existentes
+		this.children.remove(A);
+
+	}
+
+	public double expRandom(double m) {
+		double next = random.nextDouble();
+		return -m*Math.log(1.0-next);
+	}
+	
+	Child findbestone() {
+		Child best;
+		best=this.children.get(0);
+		for(int i=0; i<this.children.size(); i++) {
+			if(best.comfort<(this.children.get(i)).comfort) {
+				best=this.children.get(i);
+			}
+		}
+		return(best);
+	}
+	
+	void print_path() {
+		for(int i=0; i<this.bestpath.size(); i++) {
+			if(i==0) {
+				System.out.print("{");
+			}
+			System.out.print(this.bestpath.get(i));
+			if(i<this.bestpath.size() - 1) {
+				System.out.print(", ");
+			}
+			if(i==this.bestpath.size() - 1) {
+				System.out.print("}");
+			}
+		}
+	}
 	
 }

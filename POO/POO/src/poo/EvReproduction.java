@@ -38,6 +38,7 @@ public class EvReproduction extends Event {
 		addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.ro);
 		EvReproduction newreproduction2 = new EvReproduction(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newreproduction2);
+		grid.nevents++;
 		
 		
 	}
