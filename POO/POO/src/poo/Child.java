@@ -2,7 +2,7 @@ package poo;
 import java.util.*;
 public class Child {
 
-	double comfort;
+	int comfort;
 	ArrayList<Point> path;// Lista de pontos com o caminho percorrido pelo child
 	int length;
 	int cost;

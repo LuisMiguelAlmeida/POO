@@ -5,10 +5,12 @@ public class EvReproduction extends Event {
 	
 	static Random rand = new Random();
 	
+	// construtor
 	EvReproduction(double T, Child S){
 		super(T, S);
 	}
 
+	//função para simular a reprodução do individuo associado ao evento
 	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {

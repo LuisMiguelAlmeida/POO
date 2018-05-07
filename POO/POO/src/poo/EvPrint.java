@@ -2,10 +2,12 @@ package poo;
 
 public class EvPrint extends Event {
 	
+	//construtor
 	EvPrint(double T, Child S){
 		super(T, S);
 	}
 	
+	//função para imprimir as informações pedidas no enunciado
 	public double simulate(Grid grid) {
 		if(grid.currtime==grid.final_instant) {
 			String prefix="Path of the best fit individual";

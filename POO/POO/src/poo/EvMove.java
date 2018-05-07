@@ -5,10 +5,12 @@ public class EvMove extends Event {
 	
 	static Random rand = new Random();
 	
+	//construtor
 	EvMove(double T, Child S){
 		super(T, S);
 	}
 
+	//função para simular um movimento do individuo associado ao evento
 	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {
@@ -74,6 +76,14 @@ public class EvMove extends Event {
 			}
 		}
 		child.path.add(newpoint);
+		if(newpoint==grid.final_point) {
+			if(grid.bestcost>child.cost || grid.bestcost==0) {
+				grid.bestpath = new ArrayList<Point>(child.path);
+				grid.bestcomfort=child.comfort;
+				grid.bestcost=child.cost;
+			}
+			
+		}
 		double addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.delta);
 		EvMove newmove = new EvMove(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newmove);
