@@ -6,13 +6,14 @@ public class EvDeath extends Event {
 		super(T, S);
 	}
 	
-	public void simulate(Grid grid) {
+	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {
-			return;
+			return(this.time);
 		}
 		child.death=true;
 		grid.nevents++;
+		return(this.time);
 	}
 
 }

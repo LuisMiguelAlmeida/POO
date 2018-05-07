@@ -223,6 +223,15 @@ public class Grid {
 		} 
 		// Adiciona um novo individuo à lista de indivíduos
 		this.children.add(A);
+		double addtime = this.expRandom((1-Math.log(A.comfort)) * this.delta);
+		EvMove newmove = new EvMove(this.currtime + addtime, A);
+		this.pec.addEvPEC(newmove);
+		addtime = this.expRandom((1-Math.log(1 - A.comfort)) * this.mew);
+		EvDeath newdeath = new EvDeath(this.currtime + addtime, A);
+		this.pec.addEvPEC(newdeath);
+		addtime = this.expRandom((1-Math.log(A.comfort)) * this.ro);
+		EvReproduction newreproduction1 = new EvReproduction(this.currtime + addtime, A);
+		this.pec.addEvPEC(newreproduction1);
 
 	}
 	

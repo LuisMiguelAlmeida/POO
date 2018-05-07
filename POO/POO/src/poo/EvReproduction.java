@@ -9,10 +9,10 @@ public class EvReproduction extends Event {
 		super(T, S);
 	}
 
-	public void simulate(Grid grid) {
+	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {
-			return;
+			return(this.time);
 		}
 		Child newchild;
 		newchild = new Child(grid);
@@ -26,20 +26,11 @@ public class EvReproduction extends Event {
 		}
 		newchild.change_comfort(child.path.get(child.path.size() - 1));
 		grid.add_child(newchild);
-		double addtime = grid.expRandom((1-Math.log(newchild.comfort)) * grid.delta);
-		EvMove newmove = new EvMove(grid.currtime + addtime, newchild);
-		grid.pec.addEvPEC(newmove);
-		addtime = grid.expRandom((1-Math.log(1 - child.comfort)) * grid.mew);
-		EvDeath newdeath = new EvDeath(grid.currtime + addtime, child);
-		grid.pec.addEvPEC(newdeath);
-		addtime = grid.expRandom((1-Math.log(newchild.comfort)) * grid.ro);
-		EvReproduction newreproduction1 = new EvReproduction(grid.currtime + addtime, newchild);
-		grid.pec.addEvPEC(newreproduction1);
-		addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.ro);
+		double addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.ro);
 		EvReproduction newreproduction2 = new EvReproduction(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newreproduction2);
 		grid.nevents++;
-		
+		return(this.time);
 		
 	}
 }

@@ -9,10 +9,10 @@ public class EvMove extends Event {
 		super(T, S);
 	}
 
-	public void simulate(Grid grid) {
+	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {
-			return;
+			return(this.time);
 		}
 		//options(index do vetor): 0-mover para direita; 1-mover para esquerda; 2- mover para cima; 3-mover para baixo
 		int[] options = new int[4];
@@ -78,5 +78,6 @@ public class EvMove extends Event {
 		EvMove newmove = new EvMove(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newmove);
 		grid.nevents++;
+		return(this.time);
 	}
 }

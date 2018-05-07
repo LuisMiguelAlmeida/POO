@@ -6,7 +6,7 @@ public class EvPrint extends Event {
 		super(T, S);
 	}
 	
-	public void simulate(Grid grid) {
+	public double simulate(Grid grid) {
 		if(grid.currtime==grid.final_instant) {
 			String prefix="Path of the best fit individual";
 			String format = "%-40s%s";
@@ -52,6 +52,7 @@ public class EvPrint extends Event {
 			}
 			
 		}
+		return(this.time);
 	}
 
 }

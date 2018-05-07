@@ -10,6 +10,6 @@ public abstract class Event {
 		this.subject=S;
 	}
 	
-	public abstract void simulate(Grid grid);
+	public abstract double simulate(Grid grid);
 
 }
