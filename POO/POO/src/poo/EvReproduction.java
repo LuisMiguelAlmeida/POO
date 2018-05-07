@@ -9,6 +9,9 @@ public class EvReproduction extends Event {
 
 	public void simulate(Grid grid) {
 		Child child = this.subject;
+		if(child.death) {
+			return;
+		}
 		Child newchild;
 		newchild = new Child(grid);
 		double newpathsize;

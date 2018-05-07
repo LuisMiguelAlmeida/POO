@@ -7,7 +7,6 @@ public class Child {
 	int length;
 	int cost;
 	boolean death;
-//	Event event;
 	Grid grid;
 	
 	
@@ -106,9 +105,7 @@ public class Child {
 		change_comfort(A); // Atualiza o comforto do individuo
 	}
 	
-	/*void simulate_event() {
-		this.event.simulate(this, this.grid);
-	}*/
+
 	
 	
 }

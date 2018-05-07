@@ -9,6 +9,9 @@ public class EvMove extends Event {
 
 	public void simulate(Grid grid) {
 		Child child = this.subject;
+		if(child.death) {
+			return;
+		}
 		//options(index do vetor): 0-mover para direita; 1-mover para esquerda; 2- mover para cima; 3-mover para baixo
 		int[] options = new int[4];
 		int possib=0;
