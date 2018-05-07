@@ -1,5 +1,7 @@
 package poo;
 
+import java.util.ArrayList;
+
 public class Grid {
 	
 	protected int rows, col; // Grid dimension 
@@ -17,6 +19,7 @@ public class Grid {
 	protected int delta; // mean value do movimento (move) 
 	protected int ro;	// mean value da reprodução
 	protected int mew;	// mean value da morte (death)
+	protected ArrayList<Child> children;
 	
 	//Contructor inicializa tudo a zero ()
 	Grid(){
@@ -26,6 +29,7 @@ public class Grid {
 		n_obstacles=0;
 		maxc=1;n_tupples=0;
 		final_instant=0;
+		children=null;
 		k=0;v=0;v_max=0;delta=0;ro=0;mew=0;
 	}
 	
@@ -195,6 +199,18 @@ public class Grid {
 			 
 		 }
 		 return 1;
+	}
+	
+void add_child(Child A) {
+		
+		// Se não houver nenhum caminho, então cria-se um novo array
+		if(children==null)
+		{
+			children= new ArrayList<Child>();
+		} 
+		// Adiciona um novo ponto ao caminho do individuo
+		this.children.add(A);
+
 	}
 	
 	
