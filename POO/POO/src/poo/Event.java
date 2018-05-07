@@ -3,7 +3,13 @@ package poo;
 public abstract class Event {
 	
 	double time; // Tempo em que o evento vai ocorrer
+	Child subject;
 	
-	public abstract void simulate(Child child, Grid grid);
+	Event(double T, Child S){
+		this.time=T;
+		this.subject=S;
+	}
+	
+	public abstract void simulate(Grid grid);
 
 }

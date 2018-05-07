@@ -2,8 +2,13 @@ package poo;
 import java.util.*;
 
 public class EvReproduction extends Event {
+	
+	EvReproduction(double T, Child S){
+		super(T, S);
+	}
 
-	public void simulate(Child child, Grid grid) {
+	public void simulate(Grid grid) {
+		Child child = this.subject;
 		Child newchild;
 		newchild = new Child(grid);
 		double newpathsize;

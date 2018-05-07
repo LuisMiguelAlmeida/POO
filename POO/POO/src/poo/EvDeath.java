@@ -2,7 +2,12 @@ package poo;
 
 public class EvDeath extends Event {
 	
-	public void simulate(Child child, Grid grid) {
+	EvDeath(double T, Child S){
+		super(T, S);
+	}
+	
+	public void simulate(Grid grid) {
+		Child child = this.subject;
 		child.death=true;
 	}
 

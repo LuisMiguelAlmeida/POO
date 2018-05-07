@@ -2,8 +2,13 @@ package poo;
 import java.util.*;
 
 public class EvMove extends Event {
+	
+	EvMove(double T, Child S){
+		super(T, S);
+	}
 
-	public void simulate(Child child, Grid grid) {
+	public void simulate(Grid grid) {
+		Child child = this.subject;
 		//options(index do vetor): 0-mover para direita; 1-mover para esquerda; 2- mover para cima; 3-mover para baixo
 		int[] options = new int[4];
 		int possib=0;
