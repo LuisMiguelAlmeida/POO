@@ -1,5 +1,7 @@
 package poo;
 
+import java.util.ArrayList;
+
 public class EvPrint extends Event {
 	
 	//construtor
@@ -10,10 +12,17 @@ public class EvPrint extends Event {
 	//função para imprimir as informações pedidas no enunciado
 	public double simulate(Grid grid) {
 		if(grid.currtime==grid.final_instant) {
+			ArrayList<Point> bestpath;
+			if(grid.bestpath==null) {
+				bestpath=(grid.findbestone()).path;
+			}
+			else {
+				bestpath=grid.bestpath;
+			}
 			String prefix="Path of the best fit individual";
 			String format = "%-40s%s";
 			System.out.printf(format, prefix, "");
-			grid.print_path(grid.bestpath);
+			grid.print_path(bestpath);
 			System.out.printf("%n");
 		}
 		else {
