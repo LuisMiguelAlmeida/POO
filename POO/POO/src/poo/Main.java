@@ -43,7 +43,7 @@ public class Main {
 		}
 		
 		grid=handler.getGrid();
-		
+		//Adiciona população inicial
 		for(int i=0; i<grid.v; i++) {
 			Child n = new Child(grid);
 			n.add_point(grid.initial_point);
