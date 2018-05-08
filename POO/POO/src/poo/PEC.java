@@ -5,6 +5,10 @@ public class PEC {
 	
 	ArrayList<Event> list;
 	
+	PEC(){
+		list=new ArrayList<Event>();
+	}
+	
 	public void addEvPEC(Event ev) 
 	{
 		
@@ -27,8 +31,9 @@ public class PEC {
 					this.list.add(i, ev);
 					break;
 				}
-				else if(i==(this.list.size()-1)) {
+				else if(i==this.list.size()-1) {
 					this.list.add(ev);
+					break;
 				}
 			}
 		}
