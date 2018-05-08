@@ -19,11 +19,11 @@ public class Grid {
 	protected int delta; // mean value do movimento (move) 
 	protected int ro;	// mean value da reproduÃ§Ã£o
 	protected int mew;	// mean value da morte (death)
-	double currtime; // tempo corrente da simulação
-	ArrayList<Point> bestpath;// Lista de pontos com o melhor caminho encontrado até ao momento
-	int bestcomfort; // conforto associado, na altura, ao individuo que atingiu o melhor caminho
+	double currtime; // tempo corrente da simulaï¿½ï¿½o
+	ArrayList<Point> bestpath;// Lista de pontos com o melhor caminho encontrado atï¿½ ao momento
+	double bestcomfort; // conforto associado, na altura, ao individuo que atingiu o melhor caminho
 	int bestcost; // custo associado ao melhor caminho
-	int nevents; // numero de eventos já ocorridos
+	int nevents; // numero de eventos jï¿½ ocorridos
 	static Random random = new Random();
 	PEC pec;
 	protected ArrayList<Child> children; // lista de individuos existentes
@@ -34,7 +34,8 @@ public class Grid {
 		initial_point = new Point(0,0);
 		final_point=new Point(0,0);
 		n_obstacles=0;
-		maxc=1;n_tupples=0;
+		maxc=1;
+		n_tupples=0;
 		final_instant=0;
 		children=null;
 		currtime=0;
@@ -221,15 +222,15 @@ public class Grid {
 		{
 			children= new ArrayList<Child>();
 		} 
-		// Adiciona um novo individuo à lista de indivíduos
+		// Adiciona um novo individuo ï¿½ lista de indivï¿½duos
 		this.children.add(A);
-		double addtime = this.expRandom((1-Math.log(A.comfort)) * this.delta);
+		double addtime = this.expRandom((1.0-Math.log10(A.comfort)) * this.delta);
 		EvMove newmove = new EvMove(this.currtime + addtime, A);
 		this.pec.addEvPEC(newmove);
-		addtime = this.expRandom((1-Math.log(1 - A.comfort)) * this.mew);
+		addtime = this.expRandom((1.0-Math.log10(1.0 - A.comfort)) * this.mew);
 		EvDeath newdeath = new EvDeath(this.currtime + addtime, A);
 		this.pec.addEvPEC(newdeath);
-		addtime = this.expRandom((1-Math.log(A.comfort)) * this.ro);
+		addtime = this.expRandom((1.0-Math.log10(A.comfort)) * this.ro);
 		EvReproduction newreproduction1 = new EvReproduction(this.currtime + addtime, A);
 		this.pec.addEvPEC(newreproduction1);
 

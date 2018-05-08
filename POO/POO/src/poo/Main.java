@@ -43,8 +43,7 @@ public class Main {
 		}
 		
 		grid=handler.getGrid();
-		int a= grid.getMaxc();
-		System.out.println(Integer.toString(a));
+		
 		for(int i=0; i<grid.v; i++) {
 			Child n = new Child(grid);
 			n.add_point(grid.initial_point);
@@ -55,8 +54,8 @@ public class Main {
 			grid.pec.addEvPEC(print);
 		}
 		Event currevent;
-		while(grid.currtime<=grid.final_instant) {
-			System.out.println(grid.currtime);
+		while(grid.currtime <= grid.final_instant) {
+			//System.out.println(grid.currtime);
 			currevent=grid.pec.nextEvPEC();
 			grid.currtime=currevent.simulate(grid);
 			currevent=null;

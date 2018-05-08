@@ -2,7 +2,7 @@ package poo;
 import java.util.*;
 public class Child {
 
-	int comfort;
+	double comfort;
 	ArrayList<Point> path;// Lista de pontos com o caminho percorrido pelo child
 	int length;
 	int cost;
@@ -42,7 +42,7 @@ public class Child {
 	
 	// Conforto do individuo
 	void change_comfort(Point A){
-		this.comfort=(((1- ( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3) ) )^grid.k) *  ((1- ( (dist(A)) / (grid.rows+grid.col+1) ) )^grid.k));
+		this.comfort= Math.pow( (1-( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3))), grid.k) *  Math.pow( (1-dist(A)) / (grid.rows+grid.col+1), grid.k);
 	}
 	
 	
