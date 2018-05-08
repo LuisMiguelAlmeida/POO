@@ -10,7 +10,7 @@ public class EvMove extends Event {
 		super(T, S);
 	}
 
-	//função para simular um movimento do individuo associado ao evento
+	//funï¿½ï¿½o para simular um movimento do individuo associado ao evento
 	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {
@@ -84,7 +84,10 @@ public class EvMove extends Event {
 			}
 			
 		}
-		double addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.delta);
+		System.out.println("comfort:" + child.comfort);
+		double m=(1-Math.log(child.comfort)* grid.delta);
+		System.out.println(m);
+		double addtime = grid.expRandom(m);
 		EvMove newmove = new EvMove(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newmove);
 		grid.nevents++;
