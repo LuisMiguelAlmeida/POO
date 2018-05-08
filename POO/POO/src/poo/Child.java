@@ -1,5 +1,7 @@
 package poo;
+
 import java.util.*;
+
 public class Child {
 
 	double comfort;
@@ -22,6 +24,12 @@ public class Child {
 	}
 	
 	// Calcula a distancia entre o ultimo ponto do caminho e ponto final da rede
+	/**
+	 * 
+	 * Calcula a distancia entre o ponto A e o ponto de destino do problema em questao
+	 * @param A Ponto a partir do qual é calculadaa distância
+	 * @return result Distância entre o ponto A eo ponto de destino
+	 */
 	int dist(Point A) {
 		int x_dist;
 		int y_dist;
@@ -34,6 +42,10 @@ public class Child {
 	}
 	
 	// Calcula o tamanho do percurso do individuo (numero de pontos -1 = numero de arestas)
+	/**
+	 * Calcula o tamanho do percurso da Child sobre a qual é invocado e atualiza o
+	 * parâmetro length.
+	 */
 	void path_length()
 	{
 		int array_lenght= this.path.size();
@@ -41,11 +53,20 @@ public class Child {
 	}
 	
 	// Conforto do individuo
+	/**
+	 * Função que altera o conforto da Child sobre a qual é invocado, atualizando o parâmetro
+	 * comfort
+	 * @param A Último ponto do caminho da Child a que se quer atualizar o conforto
+	 */
 	void change_comfort(Point A){
 		this.comfort= Math.pow( (1-( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3))), grid.k) *  Math.pow( 1-(dist(A)) / (grid.rows+grid.col+1), grid.k);
 	}
 	
-	
+	/**
+	 * Função que remove um ponto da lista path da Child sobre a qual é invocado,
+	 * fazendo as alterações necessárias aos parâmetros cost, comfort e length
+	 * @param A Ponto a ser removido
+	 */
 	void remove_point(Point A) 
 	{
 		this.path.remove(A);
@@ -64,7 +85,11 @@ public class Child {
 	}
 	
 	//Alterar o add para ter em conta o ciclo
-	
+	/**
+	 * Função que adiciona um ponto à lista path da Child sobre a qual é invocado,
+	 * fazendo as alterações necessárias aos parâmetros cost, comfort e length
+	 * @param A Ponto a ser adicionado
+	 */
 	void add_point(Point A) {
 		
 		// Se nÃ£o houver nenhum caminho, entÃ£o cria-se um novo array

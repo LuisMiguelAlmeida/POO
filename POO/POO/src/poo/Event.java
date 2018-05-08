@@ -3,7 +3,7 @@ package poo;
 public abstract class Event {
 	
 	double time; // Tempo em que o evento vai ocorrer
-	Child subject;
+	Child subject; // Child sobre a qual vai ser invocado o evento
 	
 	Event(double T, Child S){
 		this.time=T;

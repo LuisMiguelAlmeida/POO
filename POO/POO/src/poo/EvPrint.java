@@ -10,6 +10,11 @@ public class EvPrint extends Event {
 	}
 	
 	//função para imprimir as informações pedidas no enunciado
+	/**
+	 * Função que imprime para o ecrã todas as informações pedidas no enunciado
+	 * @param grid Grid para acesso de parametros do problema
+	 * @return tempo associado ao evento a ser simulado
+	 */
 	public double simulate(Grid grid) {
 		if(grid.currtime==grid.final_instant) {
 			ArrayList<Point> bestpath;

@@ -9,6 +9,10 @@ public class PEC {
 		list=new ArrayList<Event>();
 	}
 	
+	/**
+	 * Função que adiciona um evento ao objeto PEC por ordem cronológica
+	 * @param ev Objeto Evento a ser adicionado ao objeto PEC
+	 */
 	public void addEvPEC(Event ev) 
 	{
 		
@@ -39,6 +43,10 @@ public class PEC {
 		}
 	}
 	// Retorna o primeiro evento a ser simulado
+	/**
+	 * Função que remove o primeiro evento da PEC
+	 * @return Retorna o evento retirado da PEC para que este possa ser simulado
+	 */
 	public Event nextEvPEC() {
 		
 		if(this.list.isEmpty()) {

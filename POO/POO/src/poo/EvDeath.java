@@ -8,6 +8,11 @@ public class EvDeath extends Event {
 	}
 	
 	//função para simular a morte do individuo associado ao evento
+	/**
+	 * Função que simula o evento de Morte do objecto Child associado a este objecto
+	 * @param grid Grid para acesso de parametros do problema
+	 * @return tempo associado ao evento a ser simulado
+	 */
 	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {

@@ -11,6 +11,12 @@ public class EvReproduction extends Event {
 	}
 
 	//função para simular a reprodução do individuo associado ao evento
+	/**
+	 * Função que simula o evento de Reprodução do objecto Child associado a este objecto
+	 * e adiciona a nova Child criada à lista children do Objeto Grid que recebe
+	 * @param grid Grid para acesso de parametros do problema
+	 * @return tempo associado ao evento a ser simulado
+	 */
 	public double simulate(Grid grid) {
 		Child child = this.subject;
 		if(child.death) {

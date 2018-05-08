@@ -47,6 +47,12 @@ public class Grid {
 		k=0;v=0;v_max=0;delta=0;ro=0;mew=0;
 	}
 	
+	/**
+	 * Função que indica se existe um obstáculo num ponto
+	 * @param x Coordenada x do ponto onde se quer verificar a existência de um obstáculo
+	 * @param y Coordenada y do ponto onde se quer verificar a existência de um obstáculo
+	 * @return Retorna true se existir um obstáculo e false caso contrário
+	 */
 	public boolean getobs(int x, int y) {
 		for(int i=0; i<n_obstacles; i++) {
 			if((this.obstacles[i].x == x) && (this.obstacles[i].y == y))
@@ -56,6 +62,7 @@ public class Grid {
 	}
 	
 	// Getters and setters
+
 	public int getrows() {
 		return rows;
 	}
@@ -163,6 +170,11 @@ public class Grid {
 	}
 
 	//TODO Overlap das zonas especiais
+	/**
+	 * Função que indica o custo do movimento entre dois pontos
+	 * @param T Objeto que contem os dois pontos entre os quais existirá o movimento
+	 * @return Retorna o custo do movimento
+	 */
 	public int moveCost(Tupple T) {
 		
 		// T -> Ultima aresta percorrida pelo individuo
@@ -215,6 +227,10 @@ public class Grid {
 		 return 1;
 	}
 	
+	/**
+	 * Função que adiciona um Objeto Child à lista children de uma Grid
+	 * @param A Objeto Child a adicionar
+	 */
 	void add_child(Child A) {
 		
 		// Se nÃ£o houver nenhum individuo, entÃ£o cria-se uma nova Lista
@@ -236,6 +252,10 @@ public class Grid {
 
 	}
 	
+	/**
+	 * Função que remove um Objeto Child à lista children de uma Grid
+	 * @param A Objeto Child a remover
+	 */
 	void remove_child(Child A) {
 		 
 		// Remove um individuo da lista de individuos existentes
@@ -243,11 +263,20 @@ public class Grid {
 
 	}
 
+	/**
+	 * Função que calcula o valor de uma variável aleatória exponencial
+	 * @param m Média da variável aleatórioa exponencial
+	 * @return Valor aleatório
+	 */
 	public double expRandom(double m) {
 		double next = random.nextDouble();
 		return -m*Math.log(1.0-next);
 	}
 	
+	/**
+	 * Função que encontra o objeto Child na lista children com maior conforto
+	 * @return Retorna o objeto Child com maior conforto
+	 */
 	Child findbestone() {
 		Child best;
 		best=this.children.get(0);
@@ -259,6 +288,10 @@ public class Grid {
 		return(best);
 	}
 	
+	/**
+	 * Função que imprime um caminho para o ecrã
+	 * @param bestpath Caminho a imprimir
+	 */
 	void print_path(ArrayList<Point> bestpath) {
 		for(int i=0; i<bestpath.size(); i++) {
 			if(i==0) {
