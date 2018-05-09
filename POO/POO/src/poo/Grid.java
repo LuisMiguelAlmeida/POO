@@ -240,13 +240,13 @@ public class Grid {
 		} 
 		// Adiciona um novo individuo � lista de indiv�duos
 		this.children.add(A);
-		double addtime = this.expRandom((1.0-Math.log10(A.comfort)) * this.delta);
+		double addtime = this.expRandom((1.0-Math.log(A.comfort)) * this.delta);
 		EvMove newmove = new EvMove(this.currtime + addtime, A);
 		this.pec.addEvPEC(newmove);
-		addtime = this.expRandom((1.0-Math.log10(1.0 - A.comfort)) * this.mew);
+		addtime = this.expRandom((1.0-Math.log(1.0 - A.comfort)) * this.mew);
 		EvDeath newdeath = new EvDeath(this.currtime + addtime, A);
 		this.pec.addEvPEC(newdeath);
-		addtime = this.expRandom((1.0-Math.log10(A.comfort)) * this.ro);
+		addtime = this.expRandom((1.0-Math.log(A.comfort)) * this.ro);
 		EvReproduction newreproduction1 = new EvReproduction(this.currtime + addtime, A);
 		this.pec.addEvPEC(newreproduction1);
 
@@ -308,7 +308,6 @@ public class Grid {
 	}
 	
 	void epidemic() {
-		System.out.println("EPIDEMIC");
 		List<Integer> survivors = new ArrayList<Integer>();
 		List<Double> survivors_comfort = new ArrayList<Double>();
 		for(int i=0; i<5; i++) {

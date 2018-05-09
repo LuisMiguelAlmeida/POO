@@ -59,7 +59,28 @@ public class Child {
 	 * @param A ultimo ponto do caminho da Child a que se quer atualizar o conforto
 	 */
 	void change_comfort(Point A){
-		this.comfort= Math.pow( (1-( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3))), grid.k) *  Math.pow( 1-(dist(A)) / (grid.rows+grid.col+1), grid.k);
+		double first_term = this.grid.maxc - 1;
+		first_term=first_term*this.length;
+		first_term=first_term+3;
+		first_term=(this.cost-this.length + 2)/first_term;
+		first_term=1-first_term;
+		first_term=Math.pow(first_term, grid.k);
+		double second_term = grid.rows+grid.col+1;
+		second_term = dist(A)/second_term;
+		second_term = 1-second_term;
+		second_term= Math.pow(second_term, grid.k);
+		this.comfort=first_term*second_term;
+		System.out.println("Comfort: " + this.comfort);
+		System.out.println("Cost: " + this.cost);
+		System.out.println("Length: " + this.length);
+		System.out.println("MAXC: " + this.grid.maxc);
+		System.out.println("K: " + this.grid.k);
+		System.out.println("Dist: " + dist(A));
+		System.out.println("ROWS: " + this.grid.rows);
+		System.out.println("COLS: " + this.grid.col);
+		System.out.println("First term: " + first_term);
+		System.out.println("Second term: " +  second_term);
+		
 	}
 	
 	/**
