@@ -84,7 +84,14 @@ public class EvMove extends Event {
 		if(newpoint.equals(grid.final_point)) {
 			System.out.println("Reached last point!");
 			if(grid.bestcost>child.cost || grid.bestcost==0) {
-				grid.bestpath = new ArrayList<Point>(child.path);
+				if(grid.bestpath!=null) {
+					grid.bestpath.clear();
+				}
+				grid.bestpath=null;
+				grid.bestpath= new ArrayList<Point>();
+				for(int i=0; i<child.path.size(); i++) {
+					grid.bestpath.add(child.path.get(i));
+				}
 				grid.bestcomfort=child.comfort;
 				grid.bestcost=child.cost;
 			}

@@ -31,7 +31,13 @@ public class EvPrint extends Event {
 			prefix = "Number of realized events:";
 			System.out.printf(format, prefix, grid.nevents);
 			prefix = "Population size:";
-			System.out.printf(format, prefix, grid.children.size());
+			int pop=0;
+			for(int i=0; i<grid.children.size(); i++) {
+				if(!grid.children.get(i).death) {
+					pop++;
+				}
+			}
+			System.out.printf(format, prefix, pop);
 			prefix = "Final point has been hit: ";
 			String sufix;
 			if(grid.bestpath==null) {
