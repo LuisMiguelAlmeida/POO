@@ -101,11 +101,10 @@ public class Child {
 		if(this.path.contains(A)) 
 		{
 			int index = this.path.indexOf(A);
-			int size = this.path.size();
 			Point P;
-			for(int i=index+1; i<size; i++)
+			while(index+1<this.path.size())
 			{
-				P=this.path.get(i);
+				P=this.path.get(index+1);
 				this.remove_point(P);
 			}
 			
