@@ -307,4 +307,38 @@ public class Grid {
 		}
 	}
 	
+	void epidemic() {
+		List<Integer> survivors = new ArrayList<Integer>();
+		List<Double> survivors_comfort = new ArrayList<Double>();
+		for(int i=0; i<5; i++) {
+			survivors.add(i);
+			survivors_comfort.add(this.children.get(i).comfort);
+		}
+		Collections.sort(survivors);
+		Collections.sort(survivors_comfort);
+		for(int i=5; i<this.children.size(); i++) {
+			if(survivors_comfort.get(0)<(this.children.get(i)).comfort) {
+				survivors.remove(0);
+				survivors.add(i);
+				survivors_comfort.remove(0);
+				survivors_comfort.add(this.children.get(i).comfort);
+				Collections.sort(survivors);
+				Collections.sort(survivors_comfort);
+			}
+		}
+		double chance;
+		for(int i=0; i<this.children.size(); i++) {
+			if(survivors.contains(i)) {
+				continue;
+			}
+			else {
+				chance=(random.nextInt(11))/10;
+				if(chance>children.get(i).comfort) {
+					children.get(i).death=true;
+				}
+			}
+		}
+	}
+	
+	
 }

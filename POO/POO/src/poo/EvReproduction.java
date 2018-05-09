@@ -38,6 +38,9 @@ public class EvReproduction extends Event {
 		EvReproduction newreproduction2 = new EvReproduction(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newreproduction2);
 		grid.nevents++;
+		if(grid.children.size()>grid.v_max) {
+			grid.epidemic();
+		}
 		return(this.time);
 		
 	}
