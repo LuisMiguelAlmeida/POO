@@ -136,11 +136,11 @@ public class Child {
 			int size=this.path.size();
 			size--;
 			this.path.add(A);
-			this.length=this.length + 1;
 			
 			Point orig;
 			if(size>1)
 			{
+				this.length=this.length + 1;
 				orig=path.get(size);
 				Tupple T;
 				T= new Tupple(0, A, orig);
