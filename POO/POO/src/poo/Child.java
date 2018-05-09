@@ -91,8 +91,6 @@ public class Child {
 		origindex--;
 		System.out.println("REMOVE SECOND :" + origindex);
 		orig=this.path.get(origindex);
-		System.out.println("COST BEFORE :" + this.cost);
-		System.out.println("LENGTH BEFORE :" + this.length);
 		this.length=this.length - 1;
     	Tupple T;
 		T= new Tupple(0, A, orig);
@@ -141,7 +139,7 @@ public class Child {
 			}
 			
 			Point orig;
-			if(size>1)
+			if(this.path.size()>1)
 			{
 				this.length=this.length + 1;
 				orig=path.get(size);

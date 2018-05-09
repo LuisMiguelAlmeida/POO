@@ -29,6 +29,7 @@ public class EvReproduction extends Event {
 		newpathsize = newpathsize * (0.9 + (child.comfort * 0.1));
 		System.out.println("BEINGBORN!!!!");
 		for(int i=0; i<Math.ceil(newpathsize); i ++) {
+			System.out.println("ITERATION: " + i);
 			newchild.add_point(child.path.get(i));
 		}
 		grid.add_child(newchild);
