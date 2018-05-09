@@ -47,6 +47,7 @@ public class Main {
 		for(int i=0; i<grid.v; i++) {
 			Child n = new Child(grid);
 			n.add_point(grid.initial_point);
+			n.length=0;
 			grid.add_child(n);
 		}
 		for(int i=1; i<=20; i++) {

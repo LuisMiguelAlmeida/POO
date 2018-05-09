@@ -70,6 +70,9 @@ public class Child {
 		second_term = 1-second_term;
 		second_term= Math.pow(second_term, grid.k);
 		this.comfort=first_term*second_term;
+		if(this.death) {
+			System.out.println("DEAD!!!");
+		}
 		System.out.println("COST: " + this.cost);
 		System.out.println("Length: " + this.length + "\n");
 		
