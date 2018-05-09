@@ -31,6 +31,12 @@ public class ReadFile extends DefaultHandler{
 		public void setGrid(Grid grid) {
 			this.grid = grid;
 		}
+		/**
+		 *  Esta funcao vai ler do ficheiro os atributos de cada elemento
+		 *  pondo-os nos atributos de um objecto Grid
+		 * @param String qname tem o nome de um elemento 
+		 * @param Attributes attributes tem os atributos referentes a cada elemento
+		 */
 		@Override
 		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
         {
@@ -237,7 +243,13 @@ public class ReadFile extends DefaultHandler{
 
         }
 		// Aqui escrevemos o que está dentro de <elem> thisshouldbewrittenn </elem>
-		
+		/**
+		 *  Esta funcao vai ler do ficheiro o conteudo de cada elemento
+		 *  pondo-os nos atributos de um objecto Grid
+		 *	@param ch - caracteres do docucmento XML
+		 *	@param start -inicio da posicao do array
+		 *	@param length - numero de caracteres lido do array
+		 */
 		  @Override
 		    public void characters(char[] ch, int start, int length) throws SAXException {
 
@@ -262,9 +274,13 @@ public class ReadFile extends DefaultHandler{
 		       
 		    }
 		
-		
-		
-		// Devemos escrever nesta função, os atributos deste objecto??
+		  /**
+			 *  Esta funcao vai criar um novo objecto(Points) que fazem parte 
+			 *  de um outro objecto (grid) com os paramentros lidos no  metodo startElement
+			 *	@param uri- Namespace URI, ou uma string vazia se o elemento nao tiver nenhum Namespace
+			 *  @param localName - nome local 
+			 *  @param qName nome do elemento no ficheiro XML
+			 */
 		@Override  
 		public void endElement(String uri, String localName,
 		        String qName) throws SAXException {
