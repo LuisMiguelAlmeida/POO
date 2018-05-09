@@ -57,6 +57,7 @@ public class Main {
 		while(grid.currtime <= grid.final_instant) {
 			//System.out.println(grid.currtime);
 			currevent=grid.pec.nextEvPEC();
+			//System.out.println("Next time: "+currevent.time);
 			grid.currtime=currevent.simulate(grid);
 			currevent=null;
 		}

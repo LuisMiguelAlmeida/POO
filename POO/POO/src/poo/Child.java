@@ -70,16 +70,6 @@ public class Child {
 		second_term = 1-second_term;
 		second_term= Math.pow(second_term, grid.k);
 		this.comfort=first_term*second_term;
-		System.out.println("Comfort: " + this.comfort);
-		System.out.println("Cost: " + this.cost);
-		System.out.println("Length: " + this.length);
-		System.out.println("MAXC: " + this.grid.maxc);
-		System.out.println("K: " + this.grid.k);
-		System.out.println("Dist: " + dist(A));
-		System.out.println("ROWS: " + this.grid.rows);
-		System.out.println("COLS: " + this.grid.col);
-		System.out.println("First term: " + first_term);
-		System.out.println("Second term: " +  second_term);
 		
 	}
 	
