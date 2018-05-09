@@ -26,13 +26,11 @@ public class EvReproduction extends Event {
 		newchild = new Child(grid);
 		double newpathsize;
 		newpathsize = child.path.size();
-		int percentage;
-		percentage = rand.nextInt(11);
-		newpathsize = newpathsize * (0.9 + (percentage/100));
+		newpathsize = newpathsize * (0.9 + (child.comfort * 0.1));
+		System.out.println("BEINGBORN!!!!");
 		for(int i=0; i<Math.ceil(newpathsize); i ++) {
 			newchild.add_point(child.path.get(i));
 		}
-		newchild.change_comfort(child.path.get(child.path.size() - 1));
 		grid.add_child(newchild);
 		double addtime = grid.expRandom((1-Math.log(child.comfort)) * grid.ro);
 		EvReproduction newreproduction2 = new EvReproduction(grid.currtime + addtime, child);

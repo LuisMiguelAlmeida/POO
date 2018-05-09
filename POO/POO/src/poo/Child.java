@@ -136,6 +136,9 @@ public class Child {
 			int size=this.path.size();
 			size--;
 			this.path.add(A);
+			if(this.path.size()==1) {
+				System.out.println("BEING BORN!!");
+			}
 			
 			Point orig;
 			if(size>1)
