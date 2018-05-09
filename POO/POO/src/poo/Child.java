@@ -27,8 +27,8 @@ public class Child {
 	/**
 	 * 
 	 * Calcula a distancia entre o ponto A e o ponto de destino do problema em questao
-	 * @param A Ponto a partir do qual é calculadaa distância
-	 * @return result Distância entre o ponto A eo ponto de destino
+	 * @param A Ponto a partir do qual ï¿½ calculadaa distï¿½ncia
+	 * @return result Distï¿½ncia entre o ponto A eo ponto de destino
 	 */
 	int dist(Point A) {
 		int x_dist;
@@ -43,8 +43,8 @@ public class Child {
 	
 	// Calcula o tamanho do percurso do individuo (numero de pontos -1 = numero de arestas)
 	/**
-	 * Calcula o tamanho do percurso da Child sobre a qual é invocado e atualiza o
-	 * parâmetro length.
+	 * Calcula o tamanho do percurso da Child sobre a qual ï¿½ invocado e atualiza o
+	 * parï¿½metro length.
 	 */
 	void path_length()
 	{
@@ -54,17 +54,17 @@ public class Child {
 	
 	// Conforto do individuo
 	/**
-	 * Função que altera o conforto da Child sobre a qual é invocado, atualizando o parâmetro
+	 * Funï¿½ï¿½o que altera o conforto da Child sobre a qual ï¿½ invocado, atualizando o parï¿½metro
 	 * comfort
-	 * @param A Último ponto do caminho da Child a que se quer atualizar o conforto
+	 * @param A ï¿½ltimo ponto do caminho da Child a que se quer atualizar o conforto
 	 */
 	void change_comfort(Point A){
 		this.comfort= Math.pow( (1-( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3))), grid.k) *  Math.pow( 1-(dist(A)) / (grid.rows+grid.col+1), grid.k);
 	}
 	
 	/**
-	 * Função que remove um ponto da lista path da Child sobre a qual é invocado,
-	 * fazendo as alterações necessárias aos parâmetros cost, comfort e length
+	 * Funï¿½ï¿½o que remove um ponto da lista path da Child sobre a qual ï¿½ invocado,
+	 * fazendo as alteraï¿½ï¿½es necessï¿½rias aos parï¿½metros cost, comfort e length
 	 * @param A Ponto a ser removido
 	 */
 	void remove_point(Point A) 
@@ -86,8 +86,8 @@ public class Child {
 	
 	//Alterar o add para ter em conta o ciclo
 	/**
-	 * Função que adiciona um ponto à lista path da Child sobre a qual é invocado,
-	 * fazendo as alterações necessárias aos parâmetros cost, comfort e length
+	 * Funï¿½ï¿½o que adiciona um ponto ï¿½ lista path da Child sobre a qual ï¿½ invocado,
+	 * fazendo as alteraï¿½ï¿½es necessï¿½rias aos parï¿½metros cost, comfort e length
 	 * @param A Ponto a ser adicionado
 	 */
 	void add_point(Point A) {
@@ -101,11 +101,10 @@ public class Child {
 		if(this.path.contains(A)) 
 		{
 			int index = this.path.indexOf(A);
-			int size = this.path.size();
 			Point P;
-			for(int i=index+1; i<size; i++)
+			while(index+1<this.path.size())
 			{
-				P=this.path.get(i);
+				P=this.path.get(index+1);
 				this.remove_point(P);
 			}
 			
@@ -119,13 +118,15 @@ public class Child {
 			Point orig;
 			int size;
 			size=path.size();
-			orig=path.get(size-1);
-			Tupple T;
-			T= new Tupple(0, A, orig);
-			
-			// Ve se o novo caminho do individuo contem zonas especiais 
-			this.cost += this.grid.moveCost(T);
+			if(size>1)
+			{
+				orig=path.get(size-2);
+				Tupple T;
+				T= new Tupple(0, A, orig);
 				
+				// Ve se o novo caminho do individuo contem zonas especiais 
+				this.cost += this.grid.moveCost(T);
+			}				
 		}
 		change_comfort(A); // Atualiza o comforto do individuo
 	}

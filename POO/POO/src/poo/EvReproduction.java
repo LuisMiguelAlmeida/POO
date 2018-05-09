@@ -27,9 +27,9 @@ public class EvReproduction extends Event {
 		double newpathsize;
 		newpathsize = child.path.size();
 		int percentage;
-		percentage = rand.nextInt(10) + 1;
+		percentage = rand.nextInt(11);
 		newpathsize = newpathsize * (0.9 + (percentage/100));
-		for(int i=0; i<newpathsize; i ++) {
+		for(int i=0; i<Math.ceil(newpathsize); i ++) {
 			newchild.add_point(child.path.get(i));
 		}
 		newchild.change_comfort(child.path.get(child.path.size() - 1));
