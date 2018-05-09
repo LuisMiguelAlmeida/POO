@@ -70,6 +70,8 @@ public class Child {
 		second_term = 1-second_term;
 		second_term= Math.pow(second_term, grid.k);
 		this.comfort=first_term*second_term;
+		System.out.println("COST: " + this.cost);
+		System.out.println("Length: " + this.length + "\n");
 		
 	}
 	
@@ -80,18 +82,20 @@ public class Child {
 	 */
 	void remove_point(Point A) 
 	{
-		this.path.remove(A);
-		this.length=this.length - 1;
-		
 		Point orig;
-		int size;
-		size=path.size();
-		orig=path.get(size-1);
+		int origindex;
+		origindex=this.path.indexOf(A);
+		origindex--;
+		System.out.println("REMOVE SECOND :" + origindex);
+		orig=this.path.get(origindex);
+		System.out.println("COST BEFORE :" + this.cost);
+		System.out.println("LENGTH BEFORE :" + this.length);
+		this.length=this.length - 1;
     	Tupple T;
 		T= new Tupple(0, A, orig);
 		
 		this.cost -= this.grid.moveCost(T);
-		change_comfort(A); // Atualiza o comforto do individuo
+		this.path.remove(A);
 		
 	}
 	
@@ -113,25 +117,28 @@ public class Child {
 		{
 			System.out.println("PONTO REPETIDO");
 			int index = this.path.indexOf(A);
+			int remove;
 			while(index+1<this.path.size())
 			{
-				System.out.println("REMOVE ONE");
-				this.remove_point(this.path.get(index+1));
+				remove=this.path.size();
+				remove--;
+				System.out.println("REMOVE ONE :" + remove);
+				this.remove_point(this.path.get(remove));
 			}
 			
 		}
 		else 
 		{
 			// Adiciona um novo ponto ao caminho do individuo
+			int size=this.path.size();
+			size--;
 			this.path.add(A);
 			this.length=this.length + 1;
 			
 			Point orig;
-			int size;
-			size=path.size();
 			if(size>1)
 			{
-				orig=path.get(size-2);
+				orig=path.get(size);
 				Tupple T;
 				T= new Tupple(0, A, orig);
 				
