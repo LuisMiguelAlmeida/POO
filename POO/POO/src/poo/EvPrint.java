@@ -1,7 +1,5 @@
 package poo;
 
-import java.util.ArrayList;
-
 public class EvPrint extends Event {
 	
 	//construtor
@@ -9,25 +7,21 @@ public class EvPrint extends Event {
 		super(T, S);
 	}
 	
-	//função para imprimir as informações pedidas no enunciado
+	//funï¿½ï¿½o para imprimir as informaï¿½ï¿½es pedidas no enunciado
 	/**
-	 * Função que imprime para o ecrã todas as informações pedidas no enunciado
+	 * Funï¿½ï¿½o que imprime para o ecrï¿½ todas as informaï¿½ï¿½es pedidas no enunciado
 	 * @param grid Grid para acesso de parametros do problema
 	 * @return tempo associado ao evento a ser simulado
 	 */
 	public double simulate(Grid grid) {
+		grid.currtime=time;
+		Child best = grid.findbestone();
+		
 		if(grid.currtime==grid.final_instant) {
-			ArrayList<Point> bestpath;
-			if(grid.bestpath==null) {
-				bestpath=(grid.findbestone()).path;
-			}
-			else {
-				bestpath=grid.bestpath;
-			}
 			String prefix="Path of the best fit individual";
 			String format = "%-40s%s";
 			System.out.printf(format, prefix, "");
-			grid.print_path(bestpath);
+			grid.print_path(best.path);
 			System.out.printf("%n");
 		}
 		else {
@@ -43,11 +37,10 @@ public class EvPrint extends Event {
 			if(grid.bestpath==null) {
 				sufix="No";
 				System.out.printf(format, prefix, sufix);
-				Child best = grid.findbestone();
 				prefix="Path of the best fit individual";
 				format = "%-40s%s";
 				System.out.printf(format, prefix, "");
-				grid.print_path(grid.bestpath);
+				grid.print_path(best.path);
 				System.out.printf("%n");
 				prefix="Cost/Comfort:";
 				format = "%-40s%s/%s%n";
@@ -60,7 +53,7 @@ public class EvPrint extends Event {
 				prefix="Path of the best fit individual";
 				format = "%-40s%s";
 				System.out.printf(format, prefix, "");
-				grid.print_path(grid.bestpath);
+				grid.print_path(best.path);
 				System.out.printf("%n");
 				prefix="Cost/Comfort:";
 				format = "%-40s%s/%s%n";

@@ -12,7 +12,7 @@ public class EvMove extends Event {
 
 	//funï¿½ï¿½o para simular um movimento do individuo associado ao evento
 	/**
-	 * Função que simula o evento de Movimento do objecto Child associado a este objecto
+	 * Funï¿½ï¿½o que simula o evento de Movimento do objecto Child associado a este objecto
 	 * @param grid Grid para acesso de parametros do problema
 	 * @return tempo associado ao evento a ser simulado
 	 */
@@ -82,6 +82,7 @@ public class EvMove extends Event {
 		}
 		child.path.add(newpoint);
 		if(newpoint==grid.final_point) {
+			System.out.println("Reached last point!");
 			if(grid.bestcost>child.cost || grid.bestcost==0) {
 				grid.bestpath = new ArrayList<Point>(child.path);
 				grid.bestcomfort=child.comfort;
@@ -89,9 +90,8 @@ public class EvMove extends Event {
 			}
 			
 		}
-		System.out.println("comfort:" + child.comfort);
+		
 		double m=(1-Math.log(child.comfort)* grid.delta);
-		System.out.println(m);
 		double addtime = grid.expRandom(m);
 		EvMove newmove = new EvMove(grid.currtime + addtime, child);
 		grid.pec.addEvPEC(newmove);
