@@ -27,8 +27,8 @@ public class Child {
 	/**
 	 * 
 	 * Calcula a distancia entre o ponto A e o ponto de destino do problema em questao
-	 * @param A Ponto a partir do qual � calculadaa dist�ncia
-	 * @return result Dist�ncia entre o ponto A eo ponto de destino
+	 * @param A Ponto a partir do qual e calculadaa distancia
+	 * @return result Distancia entre o ponto A eo ponto de destino
 	 */
 	int dist(Point A) {
 		int x_dist;
@@ -43,8 +43,8 @@ public class Child {
 	
 	// Calcula o tamanho do percurso do individuo (numero de pontos -1 = numero de arestas)
 	/**
-	 * Calcula o tamanho do percurso da Child sobre a qual � invocado e atualiza o
-	 * par�metro length.
+	 * Calcula o tamanho do percurso da Child sobre a qual e invocado e atualiza o
+	 * parametro length.
 	 */
 	void path_length()
 	{
@@ -54,17 +54,17 @@ public class Child {
 	
 	// Conforto do individuo
 	/**
-	 * Fun��o que altera o conforto da Child sobre a qual � invocado, atualizando o par�metro
+	 * Funcao que altera o conforto da Child sobre a qual e invocado, atualizando o parametro
 	 * comfort
-	 * @param A �ltimo ponto do caminho da Child a que se quer atualizar o conforto
+	 * @param A ultimo ponto do caminho da Child a que se quer atualizar o conforto
 	 */
 	void change_comfort(Point A){
 		this.comfort= Math.pow( (1-( (this.cost-this.length+2) / ((this.grid.maxc - 1)*this.length+3))), grid.k) *  Math.pow( 1-(dist(A)) / (grid.rows+grid.col+1), grid.k);
 	}
 	
 	/**
-	 * Fun��o que remove um ponto da lista path da Child sobre a qual � invocado,
-	 * fazendo as altera��es necess�rias aos par�metros cost, comfort e length
+	 * Funcao que remove um ponto da lista path da Child sobre a qual e invocado,
+	 * fazendo as alteracoeses necessarias aos parametros cost, comfort e length
 	 * @param A Ponto a ser removido
 	 */
 	void remove_point(Point A) 
@@ -86,8 +86,8 @@ public class Child {
 	
 	//Alterar o add para ter em conta o ciclo
 	/**
-	 * Fun��o que adiciona um ponto � lista path da Child sobre a qual � invocado,
-	 * fazendo as altera��es necess�rias aos par�metros cost, comfort e length
+	 * Funcao que adiciona um ponto a lista path da Child sobre a qual e invocado,
+	 * fazendo as alteracoes necessarias aos parametros cost, comfort e length
 	 * @param A Ponto a ser adicionado
 	 */
 	void add_point(Point A) {

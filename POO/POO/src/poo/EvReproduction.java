@@ -12,8 +12,8 @@ public class EvReproduction extends Event {
 
 	//função para simular a reprodução do individuo associado ao evento
 	/**
-	 * Função que simula o evento de Reprodução do objecto Child associado a este objecto
-	 * e adiciona a nova Child criada à lista children do Objeto Grid que recebe
+	 * Funcao que simula o evento de Reproducao do objecto Child associado a este objecto
+	 * e adiciona a nova Child criada a lista children do Objeto Grid que recebe
 	 * @param grid Grid para acesso de parametros do problema
 	 * @return tempo associado ao evento a ser simulado
 	 */

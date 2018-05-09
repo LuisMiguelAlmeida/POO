@@ -48,10 +48,10 @@ public class Grid {
 	}
 	
 	/**
-	 * Função que indica se existe um obstáculo num ponto
-	 * @param x Coordenada x do ponto onde se quer verificar a existência de um obstáculo
-	 * @param y Coordenada y do ponto onde se quer verificar a existência de um obstáculo
-	 * @return Retorna true se existir um obstáculo e false caso contrário
+	 * Funcao que indica se existe um obstaculo num ponto
+	 * @param x Coordenada x do ponto onde se quer verificar a existencia de um obstaculo
+	 * @param y Coordenada y do ponto onde se quer verificar a existencia de um obstaculo
+	 * @return Retorna true se existir um obstaculo e false caso contrario
 	 */
 	public boolean getobs(int x, int y) {
 		for(int i=0; i<n_obstacles; i++) {
@@ -171,8 +171,8 @@ public class Grid {
 
 	//TODO Overlap das zonas especiais
 	/**
-	 * Função que indica o custo do movimento entre dois pontos
-	 * @param T Objeto que contem os dois pontos entre os quais existirá o movimento
+	 * Funcao que indica o custo do movimento entre dois pontos
+	 * @param T Objeto que contem os dois pontos entre os quais existira o movimento
 	 * @return Retorna o custo do movimento
 	 */
 	public int moveCost(Tupple T) {
@@ -228,7 +228,7 @@ public class Grid {
 	}
 	
 	/**
-	 * Função que adiciona um Objeto Child à lista children de uma Grid
+	 * Funcao que adiciona um Objeto Child a lista children de uma Grid
 	 * @param A Objeto Child a adicionar
 	 */
 	void add_child(Child A) {
@@ -253,7 +253,7 @@ public class Grid {
 	}
 	
 	/**
-	 * Função que remove um Objeto Child à lista children de uma Grid
+	 * Funcao que remove um Objeto Child a lista children de uma Grid
 	 * @param A Objeto Child a remover
 	 */
 	void remove_child(Child A) {
@@ -264,9 +264,9 @@ public class Grid {
 	}
 
 	/**
-	 * Função que calcula o valor de uma variável aleatória exponencial
-	 * @param m Média da variável aleatórioa exponencial
-	 * @return Valor aleatório
+	 * Funcao que calcula o valor de uma variavel aleatoria exponencial
+	 * @param m Media da variavel aleatoria exponencial
+	 * @return Valor aleatorio
 	 */
 	public double expRandom(double m) {
 		double next = random.nextDouble();
@@ -274,7 +274,7 @@ public class Grid {
 	}
 	
 	/**
-	 * Função que encontra o objeto Child na lista children com maior conforto
+	 * Funcao que encontra o objeto Child na lista children com maior conforto
 	 * @return Retorna o objeto Child com maior conforto
 	 */
 	Child findbestone() {
@@ -289,7 +289,7 @@ public class Grid {
 	}
 	
 	/**
-	 * Função que imprime um caminho para o ecrã
+	 * Funcao que imprime um caminho para o ecra
 	 * @param bestpath Caminho a imprimir
 	 */
 	void print_path(ArrayList<Point> bestpath) {
@@ -308,6 +308,7 @@ public class Grid {
 	}
 	
 	void epidemic() {
+		System.out.println("EPIDEMIC");
 		List<Integer> survivors = new ArrayList<Integer>();
 		List<Double> survivors_comfort = new ArrayList<Double>();
 		for(int i=0; i<5; i++) {

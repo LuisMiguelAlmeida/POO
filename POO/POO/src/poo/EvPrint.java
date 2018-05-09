@@ -9,7 +9,7 @@ public class EvPrint extends Event {
 	
 	//fun��o para imprimir as informa��es pedidas no enunciado
 	/**
-	 * Fun��o que imprime para o ecr� todas as informa��es pedidas no enunciado
+	 * Funcao que imprime para o ecra todas as informacoes pedidas no enunciado
 	 * @param grid Grid para acesso de parametros do problema
 	 * @return tempo associado ao evento a ser simulado
 	 */
