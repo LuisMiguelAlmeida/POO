@@ -111,12 +111,12 @@ public class Child {
 		// Se encontrarmos um ciclo no percurso, elimina-se todos os pontos que pertencem a este
 		if(this.path.contains(A)) 
 		{
+			System.out.println("PONTO REPETIDO");
 			int index = this.path.indexOf(A);
-			Point P;
 			while(index+1<this.path.size())
 			{
-				P=this.path.get(index+1);
-				this.remove_point(P);
+				System.out.println("REMOVE ONE");
+				this.remove_point(this.path.get(index+1));
 			}
 			
 		}

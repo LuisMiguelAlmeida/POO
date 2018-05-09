@@ -80,7 +80,7 @@ public class EvMove extends Event {
 				j--;
 			}
 		}
-		child.path.add(newpoint);
+		child.add_point(newpoint);
 		if(newpoint.equals(grid.final_point)) {
 			System.out.println("Reached last point!");
 			if(grid.bestcost>child.cost || grid.bestcost==0) {
