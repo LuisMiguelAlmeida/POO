@@ -60,5 +60,13 @@ public class PEC {
 			return(ev);
 		}
 	}
+	
+	public void delete(Child target) {
+		for(int i=0; i<this.list.size(); i++) {
+			if(this.list.get(i).subject==target) {
+				this.list.remove(i);
+			}
+		}
+	}
 
 }

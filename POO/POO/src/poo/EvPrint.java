@@ -21,7 +21,13 @@ public class EvPrint extends Event {
 			String prefix="Path of the best fit individual";
 			String format = "%-40s%s";
 			System.out.printf(format, prefix, "");
-			grid.print_path(best.path);
+			if(grid.bestpath==null) {
+				grid.print_path(best.path);
+			}
+			else {
+				grid.print_path(grid.bestpath);
+			}
+			
 			System.out.printf("%n");
 		}
 		else {
@@ -38,6 +44,7 @@ public class EvPrint extends Event {
 				}
 			}
 			System.out.printf(format, prefix, pop);
+			System.out.println("LIST SIZE: " + grid.children.size());
 			prefix = "Final point has been hit: ";
 			String sufix;
 			if(grid.bestpath==null) {
@@ -48,9 +55,9 @@ public class EvPrint extends Event {
 				System.out.printf(format, prefix, "");
 				grid.print_path(best.path);
 				System.out.printf("%n");
-				prefix="Cost/Comfort:";
-				format = "%-40s%s/%s%n";
-				System.out.printf(format, prefix, best.cost, best.comfort);
+				prefix="Comfort:";
+				format = "%-40s%s%n";
+				System.out.printf(format, prefix, best.comfort);
 				
 			}
 			else {
@@ -61,8 +68,8 @@ public class EvPrint extends Event {
 				System.out.printf(format, prefix, "");
 				grid.print_path(grid.bestpath);
 				System.out.printf("%n");
-				prefix="Cost/Comfort:";
-				format = "%-40s%s/%s%n";
+				prefix="Cost:";
+				format = "%-40s%s%n";
 				System.out.printf(format, prefix, grid.bestcost, grid.bestcomfort);
 			}
 			

@@ -18,7 +18,13 @@ public class EvDeath extends Event {
 		if(child.death) {
 			return(this.time);
 		}
+		grid.pec.delete(child);
 		child.death=true;
+		for(int i=0; i<grid.children.size(); i++) {
+			if(grid.children.get(i)==child) {
+				grid.children.remove(i);
+			}
+		}
 		grid.nevents++;
 		return(this.time);
 	}

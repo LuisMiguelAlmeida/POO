@@ -338,6 +338,8 @@ public class Grid {
 				chance=(random.nextInt(11))/10;
 				if(chance>children.get(i).comfort) {
 					children.get(i).death=true;
+					pec.delete(children.get(i));
+					children.remove(i);
 				}
 			}
 		}
