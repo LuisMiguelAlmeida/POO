@@ -1,5 +1,6 @@
 package poo;
 
+
 public class Tupple {
 	
 	int cost;

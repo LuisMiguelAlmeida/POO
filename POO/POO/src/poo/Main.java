@@ -35,7 +35,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			parser.parse(new File("test_3.xml"), handler);
+			parser.parse(new File("simulation.xml"), handler);
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

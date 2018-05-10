@@ -31,8 +31,11 @@ public class EvPrint extends Event {
 			System.out.printf("%n");
 		}
 		else {
-			String format = "%-40s%s%n";
-			String prefix = "Present instant:";
+			String format = "%s%s%n";
+			String prefix = "Observation: ";
+			System.out.printf(format, prefix, (int)((grid.currtime/grid.final_instant)*20));
+			format = "%-40s%s%n";
+			prefix = "Present instant:";
 			System.out.printf(format, prefix, grid.currtime);
 			prefix = "Number of realized events:";
 			System.out.printf(format, prefix, grid.nevents);
