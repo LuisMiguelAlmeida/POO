@@ -70,6 +70,7 @@ public class ReadFile extends DefaultHandler{
 				        	
 		        		}
 	        	  }
+	        	  break;
 	          // Parametros da rede	 
         	  case "grid":
 	        	  for (int i=0; i<length; i++) 
@@ -87,7 +88,7 @@ public class ReadFile extends DefaultHandler{
 				        	break;
 		        		}
 	        	  }
-	        	
+	        	break;
         	  case "initialpoint":
 	        	  for (int i=0; i<length; i++) 
 	        	  {
@@ -104,7 +105,7 @@ public class ReadFile extends DefaultHandler{
 				        	break;
 		        		}
 	        	  }	
-
+	        	  break;
         	  case "finalpoint":
 	        	  for (int i=0; i<length; i++) 
 	        	  {
@@ -121,7 +122,7 @@ public class ReadFile extends DefaultHandler{
 				        	break;
 		        		}
 	        	  }	  
-        	  
+        	      break;
 	        ///////////////////////////////case for specialzones	  
         	  case "specialcostzones":
 	        	  for (int i=0; i<length; i++) 
@@ -163,7 +164,7 @@ public class ReadFile extends DefaultHandler{
 				        	break;
 		        		}
 	        	  }
-	        	  
+	        	  break;
 	        	  
 	        	  
 	        	  
@@ -171,7 +172,6 @@ public class ReadFile extends DefaultHandler{
 	        	  
 	        ////////////////////////////////////////////////////////////
         	  case "obstacles": // Inicializa o vetor de pontos a onde estao localizados os obtaculos
-	        	  
 	        		String value = attributes.getValue(0);        	
 		        	String name = attributes.getQName(0);
 		        		switch(name)
@@ -179,8 +179,10 @@ public class ReadFile extends DefaultHandler{
 		        		case "num":		        			
 				        	grid.setN_obstacles((Integer.parseInt(value)));
 				        	grid.setObstacles(new Point[grid.getN_obstacles()]);
+				        	 System.out.println("num "+value);
 				        	break;
 		        		}
+		          break;
         	   
         	  case "obstacle":
 	        	  for (int i=0; i<length; i++) 
@@ -199,6 +201,7 @@ public class ReadFile extends DefaultHandler{
 				        	break;
 		        		}
 	        	  }	
+	        	  break;
         	  case "death":
 	        	  
 	        		  String value1 = attributes.getValue(0);
@@ -211,7 +214,7 @@ public class ReadFile extends DefaultHandler{
 				        	grid.setMew(x);
 				        	break;
 		        		}
-	        	  
+	        	    break;
         	  case "reproduction":
 	        	  
         		  String value2 = attributes.getValue(0);
@@ -224,6 +227,8 @@ public class ReadFile extends DefaultHandler{
 			        	grid.setRo(x);
 			        	break;
 	        		}
+	        		
+	        		break;
         	  case "move":
 	        	  
         		  String value3 = attributes.getValue(0);
@@ -236,7 +241,7 @@ public class ReadFile extends DefaultHandler{
 			        	grid.setDelta(x);	        
 			        	break;
 	        		}	
-	        	  
+	        		break;
         	  }
         	 
 

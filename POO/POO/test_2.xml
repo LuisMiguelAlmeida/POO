@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE simulation SYSTEM "simulation.dtd">
 <simulation finalinst="300" initpop="300" maxpop="1000" comfortsens="2"> 
-   <grid colsnb="10" rowsnb="4"/> 
+   <grid colsnb="3" rowsnb="3"/> 
    <initialpoint xinitial="1" yinitial="1"/> 
-   <finalpoint xfinal="10" yfinal="4"/>
+   <finalpoint xfinal="3" yfinal="3"/>
    <specialcostzones num="1">
-      <zone xinitial="2" yinitial="2" xfinal="3" yfinal="3">4</zone>
+      <zone xinitial="1" yinitial="2" xfinal="2" yfinal="3">4</zone>
    </specialcostzones>
-   <obstacles num="7">
-      <obstacle xpos="2" ypos="1"/>
-      <obstacle xpos="2" ypos="3"/>
-      <obstacle xpos="2" ypos="4"/>
-      <obstacle xpos="4" ypos="2"/>
-      <obstacle xpos="5" ypos="1"/>
-      <obstacle xpos="10" ypos="1"/>
-      <obstacle xpos="10" ypos="2"/>
-   </obstacles>
    <events>
       <death param="10"/>
       <reproduction param="3"/>
