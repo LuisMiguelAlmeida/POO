@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE simulation SYSTEM "simulation.dtd">
+<simulation finalinst="3000" initpop="300" maxpop="1000" comfortsens="2"> 
+   <grid colsnb="50" rowsnb="50"/> 
+   <initialpoint xinitial="1" yinitial="1"/> 
+   <finalpoint xfinal="50" yfinal="50"/>
+   <events>
+      <death param="10000"/>
+      <reproduction param="1"/>
+      <move param="1"/>
+   </events>
+</simulation>

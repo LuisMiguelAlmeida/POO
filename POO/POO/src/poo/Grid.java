@@ -183,7 +183,6 @@ public class Grid {
 		// T -> Ultima aresta percorrida pelo individuo
 		 for (int i=0; i<this.n_tupples; i++) 
 		 {
-			 
 			Tupple temp = tupples[i];
 			// Verifica se 
 			

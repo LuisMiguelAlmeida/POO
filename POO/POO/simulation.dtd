@@ -7,15 +7,15 @@
 <!ELEMENT grid EMPTY>
 <!ATTLIST grid colsnb CDATA #REQUIRED>
 <!ATTLIST grid rowsnb CDATA #REQUIRED>
-<!ELEMENT specialcostzones (zone*)>
+<!ELEMENT specialcostzones (zone?)>
 <!ATTLIST specialcostzones num CDATA #REQUIRED>
 <!ELEMENT zone (#PCDATA)>
 <!ATTLIST zone xinitial CDATA #REQUIRED>
 <!ATTLIST zone yinitial CDATA #REQUIRED>
 <!ATTLIST zone xfinal CDATA #REQUIRED>
 <!ATTLIST zone yfinal CDATA #REQUIRED>
-<!ELEMENT obstacles (obstacle*)>
-<!ATTLIST obstacles num CDATA #REQUIRED>
+<!ELEMENT obstacles (obstacle?)>
+<!ATTLIST obstacles num CDATA #IMPLIED>
 <!ELEMENT obstacle EMPTY>
 <!ATTLIST obstacle xpos CDATA #REQUIRED>
 <!ATTLIST obstacle ypos CDATA #REQUIRED>
