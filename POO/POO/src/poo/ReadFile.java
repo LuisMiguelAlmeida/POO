@@ -44,7 +44,6 @@ public class ReadFile extends DefaultHandler{
 
         	  int length = attributes.getLength();
         	  
-        	  System.out.println(qName);
         	  switch (qName) 
         	  {
 	        	  // process each attribute

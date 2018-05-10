@@ -16,7 +16,7 @@ public class EvPrint extends Event {
 	public double simulate(Grid grid) {
 		grid.currtime=time;
 		Child best = grid.findbestone();
-		
+		System.out.println("");
 		if(grid.currtime==grid.final_instant) {
 			String prefix="Path of the best fit individual";
 			String format = "%-40s%s";
@@ -59,7 +59,7 @@ public class EvPrint extends Event {
 				prefix="Path of the best fit individual";
 				format = "%-40s%s";
 				System.out.printf(format, prefix, "");
-				grid.print_path(best.path);
+				grid.print_path(grid.bestpath);
 				System.out.printf("%n");
 				prefix="Cost/Comfort:";
 				format = "%-40s%s/%s%n";

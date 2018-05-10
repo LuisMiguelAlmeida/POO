@@ -10,7 +10,7 @@ public class EvReproduction extends Event {
 		super(T, S);
 	}
 
-	//função para simular a reprodução do individuo associado ao evento
+	//funï¿½ï¿½o para simular a reproduï¿½ï¿½o do individuo associado ao evento
 	/**
 	 * Funcao que simula o evento de Reproducao do objecto Child associado a este objecto
 	 * e adiciona a nova Child criada a lista children do Objeto Grid que recebe
@@ -27,9 +27,8 @@ public class EvReproduction extends Event {
 		double newpathsize;
 		newpathsize = child.path.size();
 		newpathsize = newpathsize * (0.9 + (child.comfort * 0.1));
-		System.out.println("BEINGBORN!!!!");
+		
 		for(int i=0; i<Math.ceil(newpathsize); i ++) {
-			System.out.println("ITERATION: " + i);
 			newchild.add_point(child.path.get(i));
 		}
 		grid.add_child(newchild);

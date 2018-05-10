@@ -54,6 +54,8 @@ public class Grid {
 	 * @return Retorna true se existir um obstaculo e false caso contrario
 	 */
 	public boolean getobs(int x, int y) {
+		if(n_obstacles==0) return false;
+		
 		for(int i=0; i<n_obstacles; i++) {
 			if((this.obstacles[i].x == x) && (this.obstacles[i].y == y))
 				return true;
@@ -169,7 +171,7 @@ public class Grid {
 		this.mew = mew;
 	}
 
-	//TODO Overlap das zonas especiais
+	// Overlap das zonas especiais
 	/**
 	 * Funcao que indica o custo do movimento entre dois pontos
 	 * @param T Objeto que contem os dois pontos entre os quais existira o movimento

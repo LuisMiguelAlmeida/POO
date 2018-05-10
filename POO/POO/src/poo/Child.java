@@ -65,16 +65,16 @@ public class Child {
 		first_term=(this.cost-this.length + 2)/first_term;
 		first_term=1-first_term;
 		first_term=Math.pow(first_term, grid.k);
+		
 		double second_term = grid.rows+grid.col+1;
 		second_term = dist(A)/second_term;
 		second_term = 1-second_term;
 		second_term= Math.pow(second_term, grid.k);
+		
 		this.comfort=first_term*second_term;
 		if(this.death) {
 			System.out.println("DEAD!!!");
 		}
-		System.out.println("COST: " + this.cost);
-		System.out.println("Length: " + this.length + "\n");
 		
 	}
 	
@@ -87,14 +87,12 @@ public class Child {
 	{
 		Point orig;
 		int origindex;
-		origindex=this.path.indexOf(A);
-		origindex--;
-		System.out.println("REMOVE SECOND :" + origindex);
+		
+		origindex=this.path.indexOf(A)-1;
 		orig=this.path.get(origindex);
 		this.length=this.length - 1;
-    	Tupple T;
-		T= new Tupple(0, A, orig);
-		
+    	
+		Tupple T= new Tupple(0, orig, A);
 		this.cost -= this.grid.moveCost(T);
 		this.path.remove(A);
 		
@@ -116,27 +114,19 @@ public class Child {
 		// Se encontrarmos um ciclo no percurso, elimina-se todos os pontos que pertencem a este
 		if(this.path.contains(A)) 
 		{
-			System.out.println("PONTO REPETIDO");
 			int index = this.path.indexOf(A);
 			int remove;
 			while(index+1<this.path.size())
 			{
-				remove=this.path.size();
-				remove--;
-				System.out.println("REMOVE ONE :" + remove);
+				remove=this.path.size()-1;
 				this.remove_point(this.path.get(remove));
 			}
-			
 		}
 		else 
 		{
 			// Adiciona um novo ponto ao caminho do individuo
-			int size=this.path.size();
-			size--;
+			int size=this.path.size()-1;
 			this.path.add(A);
-			if(this.path.size()==1) {
-				System.out.println("BEING BORN!!");
-			}
 			
 			Point orig;
 			if(this.path.size()>1)
