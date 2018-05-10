@@ -33,7 +33,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			parser.parse(new File("simulation.xml"), handler);
+			parser.parse(new File("test_2.xml"), handler);
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,8 +54,8 @@ public class Main {
 			grid.pec.addEvPEC(print);
 		}
 		Event currevent;
-		while(grid.currtime <= grid.final_instant) {
-			//System.out.println(grid.currtime);
+		while(grid.currtime < grid.final_instant) {
+			//System.out.println("CURRENT TIME: "+grid.currtime);
 			currevent=grid.pec.nextEvPEC();
 			//System.out.println("Next time: "+currevent.time);
 			grid.currtime=currevent.simulate(grid);
