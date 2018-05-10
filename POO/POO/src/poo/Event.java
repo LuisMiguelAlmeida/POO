@@ -1,6 +1,6 @@
 package poo;
 
-public abstract class Event {
+public abstract class Event implements Events{
 	
 	double time; // Tempo em que o evento vai ocorrer
 	Child subject; // Child sobre a qual vai ser invocado o evento

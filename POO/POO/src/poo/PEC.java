@@ -1,7 +1,7 @@
 package poo;
 import java.util.*;
 
-public class PEC {
+public class PEC implements Pec{
 	
 	ArrayList<Event> list;
 	
@@ -10,7 +10,7 @@ public class PEC {
 	}
 	
 	/**
-	 * Funcao que adiciona um evento ao objeto PEC por ordem cronológica
+	 * Funcao que adiciona um evento ao objeto PEC por ordem cronolï¿½gica
 	 * @param ev Objeto Evento a ser adicionado ao objeto PEC
 	 */
 	public void addEvPEC(Event ev) 
