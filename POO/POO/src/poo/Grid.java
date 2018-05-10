@@ -43,6 +43,7 @@ public class Grid {
 		bestcost = 0;
 		nevents=0;
 		pec= new PEC();
+		obstacles=null;
 		bestpath=null;
 		k=0;v=0;v_max=0;delta=0;ro=0;mew=0;
 	}
