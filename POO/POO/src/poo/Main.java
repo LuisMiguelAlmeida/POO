@@ -13,7 +13,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		long startTime = System.nanoTime();
+		if (args.length==0){
+		    System.out.println("Error- please type a string");
+		    System.exit(0);
+		}
+		
+		String NameFile=args[0];
 		
 		Grid grid= new Grid();
 		ReadFile handler = new ReadFile(grid);
@@ -35,7 +40,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		try {
-			parser.parse(new File("simulation.xml"), handler);
+			parser.parse(new File(NameFile), handler);
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -63,9 +68,6 @@ public class Main {
 			grid.currtime=currevent.simulate(grid);
 			currevent=null;
 		}
-		
-		long endTime=System.nanoTime();
-		System.out.println("TOOK " + (endTime-startTime)*10E-9+ "s");
 		
 		
 	}
