@@ -179,7 +179,6 @@ public class ReadFile extends DefaultHandler{
 		        		case "num":		        			
 				        	grid.setN_obstacles((Integer.parseInt(value)));
 				        	grid.setObstacles(new Point[grid.getN_obstacles()]);
-				        	 System.out.println("num "+value);
 				        	break;
 		        		}
 		          break;

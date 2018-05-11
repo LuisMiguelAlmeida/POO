@@ -16,10 +16,54 @@ public class EvPrint extends Event {
 	public double simulate(Grid grid) {
 		grid.currtime=time;
 		Child best = grid.findbestone();
-		System.out.println("");
+		
+		
+		String format = "%n%s%s:%n";
+		String prefix = "Observation ";
+		System.out.printf(format, prefix, (int)((grid.currtime/grid.final_instant)*20));
+		format = "%10s%-40s%s%n";
+		prefix = "Present instant:";
+		System.out.printf(format, "", prefix, grid.currtime);
+		prefix = "Number of realized events:";
+		System.out.printf(format, "", prefix, grid.nevents);
+		prefix = "Population size:";
+		int pop=0;
+		for(int i=0; i<grid.children.size(); i++) {
+			if(!grid.children.get(i).death) {
+				pop++;
+			}
+		}
+		System.out.printf(format, "", prefix, pop);
+		prefix = "Final point has been hit: ";
+		String sufix;
+		if(grid.bestpath==null) {
+			sufix="No";
+			System.out.printf(format, "", prefix, sufix);
+			prefix="Path of the best fit individual";
+			format = "%10s%-40s%s";
+			System.out.printf(format, "", prefix, "");
+			grid.print_path(best.path);
+			System.out.printf("%n");
+			prefix="Comfort:";
+			format = "%10s%-40s%s%n";
+			System.out.printf(format, "", prefix, best.comfort);
+		}
+		else {
+			sufix="Yes";
+			System.out.printf(format, "", prefix, sufix);
+			prefix="Path of the best fit individual";
+			format = "%10s%-40s%s";
+			System.out.printf(format, "", prefix, "");
+			grid.print_path(grid.bestpath);
+			System.out.printf("%n");
+			prefix="Cost:";
+			format = "%10s%-40s%s%n";
+			System.out.printf(format, "", prefix, grid.bestcost);
+		}
+		
 		if(grid.currtime==grid.final_instant) {
-			String prefix="Path of the best fit individual";
-			String format = "%-40s%s";
+			prefix="Path of the best fit individual = ";
+			format = "%n%s%s";
 			System.out.printf(format, prefix, "");
 			if(grid.bestpath==null) {
 				grid.print_path(best.path);
@@ -27,56 +71,8 @@ public class EvPrint extends Event {
 			else {
 				grid.print_path(grid.bestpath);
 			}
-			
-			System.out.printf("%n");
 		}
-		else {
-			String format = "%s%s%n";
-			String prefix = "Observation: ";
-			System.out.printf(format, prefix, (int)((grid.currtime/grid.final_instant)*20));
-			format = "%-40s%s%n";
-			prefix = "Present instant:";
-			System.out.printf(format, prefix, grid.currtime);
-			prefix = "Number of realized events:";
-			System.out.printf(format, prefix, grid.nevents);
-			prefix = "Population size:";
-			int pop=0;
-			for(int i=0; i<grid.children.size(); i++) {
-				if(!grid.children.get(i).death) {
-					pop++;
-				}
-			}
-			System.out.printf(format, prefix, pop);
-			System.out.println("LIST SIZE: " + grid.children.size());
-			prefix = "Final point has been hit: ";
-			String sufix;
-			if(grid.bestpath==null) {
-				sufix="No";
-				System.out.printf(format, prefix, sufix);
-				prefix="Path of the best fit individual";
-				format = "%-40s%s";
-				System.out.printf(format, prefix, "");
-				grid.print_path(best.path);
-				System.out.printf("%n");
-				prefix="Comfort:";
-				format = "%-40s%s%n";
-				System.out.printf(format, prefix, best.comfort);
-				
-			}
-			else {
-				sufix="Yes";
-				System.out.printf(format, prefix, sufix);
-				prefix="Path of the best fit individual";
-				format = "%-40s%s";
-				System.out.printf(format, prefix, "");
-				grid.print_path(grid.bestpath);
-				System.out.printf("%n");
-				prefix="Cost:";
-				format = "%-40s%s%n";
-				System.out.printf(format, prefix, grid.bestcost, grid.bestcomfort);
-			}
-			
-		}
+
 		return(this.time);
 	}
 
