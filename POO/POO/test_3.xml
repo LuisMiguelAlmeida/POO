@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE simulation SYSTEM "simulation.dtd">
 <simulation finalinst="3000" initpop="300" maxpop="1000" comfortsens="2"> 
-   <grid colsnb="50" rowsnb="50"/> 
-   <initialpoint xinitial="1" yinitial="1"/> 
-   <finalpoint xfinal="50" yfinal="50"/>
+   <grid colsnb="40" rowsnb="30"/> 
+   <initialpoint xinitial="30" yinitial="25"/> 
+   <finalpoint xfinal="40" yfinal="40"/>
    <events>
-      <death param="10000"/>
+      <death param="100000"/>
       <reproduction param="1"/>
       <move param="1"/>
    </events>

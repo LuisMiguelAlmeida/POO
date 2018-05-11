@@ -17,7 +17,6 @@ public class Child {
 		comfort=0;
 		length=0;
 		path=null;
-//		event=null;
 		grid=A;
 		cost=0;
 		death=false;
