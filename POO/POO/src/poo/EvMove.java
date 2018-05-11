@@ -10,7 +10,7 @@ public class EvMove extends Event {
 		super(T, S);
 	}
 
-	//fun��o para simular um movimento do individuo associado ao evento
+	//funcao para simular um movimento do individuo associado ao evento
 	/**
 	 * Funcao que simula o evento de Movimento do objecto Child associado a este objecto
 	 * @param grid Grid para acesso de parametros do problema

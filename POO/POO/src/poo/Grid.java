@@ -296,7 +296,11 @@ public class Grid {
 			}
 		}
 	}
-	
+	/**
+	 * Funcao que simula uma epidemia caso a população maxima seja atingida
+	 * onde os 5 individuos com maior conforto sobrevivem e os restantes tem
+	 * uma probablidade conforto de sobreviver
+	 */
 	void epidemic() {
 		List<Integer> survivors = new ArrayList<Integer>();
 		List<Double> survivors_comfort = new ArrayList<Double>();

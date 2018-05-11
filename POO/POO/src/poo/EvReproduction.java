@@ -10,7 +10,7 @@ public class EvReproduction extends Event {
 		super(T, S);
 	}
 
-	//fun��o para simular a reprodu��o do individuo associado ao evento
+	//funcao para simular a reproducao do individuo associado ao evento
 	/**
 	 * Funcao que simula o evento de Reproducao do objecto Child associado a este objecto
 	 * e adiciona a nova Child criada a lista children do Objeto Grid que recebe
