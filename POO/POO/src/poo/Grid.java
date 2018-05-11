@@ -180,7 +180,9 @@ public class Grid {
 	 */
 	public int moveCost(Tupple T) {
 		
-		// T -> Ultima aresta percorrida pelo individuo
+		 int cost=1;
+		
+		 // T -> Ultima aresta percorrida pelo individuo
 		 for (int i=0; i<this.n_tupples; i++) 
 		 {
 			Tupple temp = tupples[i];
@@ -190,43 +192,43 @@ public class Grid {
 			if(temp.point_A.x ==T.point_A.x && temp.point_A.x ==T.point_B.x ) 
 			{
 				if(temp.point_A.y >= T.point_A.y && temp.point_A.y >= T.point_B.y && temp.point_B.y <= T.point_A.y && temp.point_B.y <= T.point_B.y  )
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 				
 				if(temp.point_A.y <= T.point_A.y && temp.point_A.y <= T.point_B.y && temp.point_B.y >= T.point_A.y && temp.point_B.y >= T.point_B.y  )
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 			}
 			// Se a aresta T estiver na mesma coluna que o ponto B
-			if(temp.point_B.x ==T.point_A.x && temp.point_B.x ==T.point_B.x ) 
+			else if(temp.point_B.x ==T.point_A.x && temp.point_B.x ==T.point_B.x ) 
 			{
 				if(temp.point_A.y >= T.point_A.y && temp.point_A.y >= T.point_B.y && temp.point_B.y <= T.point_A.y && temp.point_B.y <= T.point_B.y  )
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 				
 				if(temp.point_A.y <= T.point_A.y && temp.point_A.y <= T.point_B.y && temp.point_B.y >= T.point_A.y && temp.point_B.y >= T.point_B.y  )
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 			}
 			// Se a aresta T estiver na mesma linha que o ponto A
-			if(temp.point_A.y==T.point_A.y && temp.point_A.y==T.point_B.y) 
+			else if(temp.point_A.y==T.point_A.y && temp.point_A.y==T.point_B.y) 
 			{
 				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >=T.point_B.x && temp.point_B.x <=T.point_A.x && temp.point_B.x <=T.point_B.x)
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 				
 				if(temp.point_A.x <=T.point_A.x && temp.point_A.x <=T.point_B.x && temp.point_B.x >=T.point_A.x && temp.point_B.x >=T.point_B.x)
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 			}
 			
 			// Se a aresta T estiver na mesma linha que o ponto B
-			if(temp.point_B.y==T.point_A.y && temp.point_B.y==T.point_B.y) 
+			else if(temp.point_B.y==T.point_A.y && temp.point_B.y==T.point_B.y) 
 			{
 				if(temp.point_A.x >=T.point_A.x && temp.point_A.x >=T.point_B.x && temp.point_B.x <=T.point_A.x && temp.point_B.x <=T.point_B.x)
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 				
 				if(temp.point_A.x <=T.point_A.x && temp.point_A.x <=T.point_B.x && temp.point_B.x >=T.point_A.x && temp.point_B.x >=T.point_B.x)
-					return temp.cost;
+					if(temp.cost > cost) cost=temp.cost;
 			}
 			
 			 
 		 }
-		 return 1;
+		 return cost;
 	}
 	
 	/**
