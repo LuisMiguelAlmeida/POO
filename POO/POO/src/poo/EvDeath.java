@@ -7,7 +7,6 @@ public class EvDeath extends Event {
 		super(T, S);
 	}
 	
-	//função para simular a morte do individuo associado ao evento
 	/**
 	 * Funcao que simula o evento de Morte do objecto Child associado a este objecto
 	 * @param grid Grid para acesso de parametros do problema

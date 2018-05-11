@@ -34,8 +34,8 @@ public class ReadFile extends DefaultHandler{
 		/**
 		 *  Esta funcao vai ler do ficheiro os atributos de cada elemento
 		 *  pondo-os nos atributos de um objecto Grid
-		 * @param String qname tem o nome de um elemento 
-		 * @param Attributes attributes tem os atributos referentes a cada elemento
+		 * @param qName String  tem o nome de um elemento 
+		 * @param  attributes Attributes tem os atributos referentes a cada elemento
 		 */
 		@Override
 		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException
