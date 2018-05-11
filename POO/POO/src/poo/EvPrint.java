@@ -7,16 +7,14 @@ public class EvPrint extends Event {
 		super(T, S);
 	}
 	
-	//fun��o para imprimir as informa��es pedidas no enunciado
+	//funcao para imprimir as informacoes pedidas no enunciado
 	/**
 	 * Funcao que imprime para o ecra todas as informacoes pedidas no enunciado
 	 * @param grid Grid para acesso de parametros do problema
 	 * @return tempo associado ao evento a ser simulado
 	 */
 	public double simulate(Grid grid) {
-		grid.currtime=time;
-		Child best = grid.findbestone();
-		
+		grid.currtime=time;		
 		
 		String format = "%n%s%s:%n";
 		String prefix = "Observation ";
@@ -36,17 +34,17 @@ public class EvPrint extends Event {
 		System.out.printf(format, "", prefix, pop);
 		prefix = "Final point has been hit: ";
 		String sufix;
-		if(grid.bestpath==null) {
+		if(grid.bestcost==0) {
 			sufix="No";
 			System.out.printf(format, "", prefix, sufix);
 			prefix="Path of the best fit individual";
 			format = "%10s%-40s%s";
 			System.out.printf(format, "", prefix, "");
-			grid.print_path(best.path);
+			grid.print_path(grid.bestpath);
 			System.out.printf("%n");
 			prefix="Comfort:";
 			format = "%10s%-40s%s%n";
-			System.out.printf(format, "", prefix, best.comfort);
+			System.out.printf(format, "", prefix, grid.bestcomfort);
 		}
 		else {
 			sufix="Yes";
@@ -65,12 +63,7 @@ public class EvPrint extends Event {
 			prefix="Path of the best fit individual = ";
 			format = "%n%s%s";
 			System.out.printf(format, prefix, "");
-			if(grid.bestpath==null) {
-				grid.print_path(best.path);
-			}
-			else {
-				grid.print_path(grid.bestpath);
-			}
+			grid.print_path(grid.bestpath);
 		}
 
 		return(this.time);

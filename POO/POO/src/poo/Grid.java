@@ -19,8 +19,8 @@ public class Grid {
 	protected int delta; // mean value do movimento (move) 
 	protected int ro;	// mean value da reprodução
 	protected int mew;	// mean value da morte (death)
-	double currtime; // tempo corrente da simula��o
-	ArrayList<Point> bestpath;// Lista de pontos com o melhor caminho encontrado at� ao momento
+	double currtime; // tempo corrente da simulacao
+	ArrayList<Point> bestpath;// Lista de pontos com o melhor caminho encontrado ate ao momento
 	double bestcomfort; // conforto associado, na altura, ao individuo que atingiu o melhor caminho
 	int bestcost; // custo associado ao melhor caminho
 	int nevents; // numero de eventos j� ocorridos
@@ -275,21 +275,7 @@ public class Grid {
 		return -m*Math.log(1.0-next);
 	}
 	
-	/**
-	 * Funcao que encontra o objeto Child na lista children com maior conforto
-	 * @return Retorna o objeto Child com maior conforto
-	 */
-	Child findbestone() {
-		Child best;
-		best=this.children.get(0);
-		for(int i=0; i<this.children.size(); i++) {
-			if(best.comfort<(this.children.get(i)).comfort) {
-				best=this.children.get(i);
-			}
-		}
-		return(best);
-	}
-	
+
 	/**
 	 * Funcao que imprime um caminho para o ecra
 	 * @param bestpath Caminho a imprimir

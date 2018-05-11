@@ -91,7 +91,6 @@ public class EvMove extends Event {
 				for(int i=0; i<child.path.size(); i++) {
 					grid.bestpath.add(child.path.get(i));
 				}
-				grid.bestcomfort=child.comfort;
 				grid.bestcost=child.cost;
 			}
 			

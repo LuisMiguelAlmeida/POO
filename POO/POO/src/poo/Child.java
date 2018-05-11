@@ -71,8 +71,18 @@ public class Child {
 		second_term= Math.pow(second_term, grid.k);
 		
 		this.comfort=first_term*second_term;
-		if(this.death) {
-			System.out.println("DEAD!!!");
+		
+		if((this.comfort > grid.bestcomfort) && (grid.bestcost == 0)) {
+			grid.bestcomfort = this.comfort;
+			
+			if(grid.bestpath!=null) {
+				grid.bestpath.clear();
+			}
+			grid.bestpath=null;
+			grid.bestpath= new ArrayList<Point>();
+			for(int i=0; i<this.path.size(); i++) {
+					grid.bestpath.add(this.path.get(i));
+			}
 		}
 		
 	}
